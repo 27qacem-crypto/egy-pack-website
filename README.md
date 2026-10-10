@@ -27,3 +27,4 @@ If WebGL is unavailable, the hero falls back to a static gradient, and the Produ
 **temporary illustrative 3D renders**, labelled on the site as "صورة توضيحية / Illustrative image".
 They are not photographs of the EGY PACK factory. To use real photos, replace each file with a photo
 of the same name (WebP, about 960×640, 3:2), and remove the label and note once all are real.
+Stage 05 is a small crossfading gallery: `05-finished-products-a/b/c.webp` (add or remove `<img class="mfg__slide">` and matching dot buttons in `index.html`).

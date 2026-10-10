@@ -195,6 +195,25 @@
     });
   }
 
+  /* ---------- Small image galleries (crossfade; auto-advance only while visible) ---------- */
+  document.querySelectorAll('.mfg__media').forEach(function (fig) {
+    var slides = fig.querySelectorAll('.mfg__slide');
+    var dots = fig.querySelectorAll('.mfg__dots button');
+    if (slides.length < 2) return;
+    var i = 0, timer = 0;
+    function show(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+      dots.forEach(function (d, k) { d.classList.toggle('is-active', k === i); d.setAttribute('aria-pressed', String(k === i)); });
+    }
+    function start() { if (!timer && !reduceMotion) timer = setInterval(function () { show(i + 1); }, 3800); }
+    function stop() { clearInterval(timer); timer = 0; }
+    dots.forEach(function (d, k) { d.addEventListener('click', function () { stop(); show(k); }); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { if (e[0].isIntersecting) start(); else stop(); }, { threshold: 0.3 }).observe(fig);
+    }
+  });
+
   /* ---------- Industry cards → quotation form with the industry preselected ---------- */
   document.querySelectorAll('.ind-card[data-industry]').forEach(function (card) {
     card.addEventListener('click', function (ev) {
