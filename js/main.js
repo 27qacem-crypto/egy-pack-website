@@ -131,25 +131,93 @@
     });
   }
 
-  /* ---------- Contact form ---------- */
+  /* ---------- Quotation form → prefilled WhatsApp message ---------- */
   var form = document.getElementById('contactForm');
+  var cfg = window.EGY_CONFIG;
   function tr(key, fallback) { return window.EGY_I18N ? window.EGY_I18N.t(key) : fallback; }
+  function currentLang() { return window.EGY_I18N ? window.EGY_I18N.lang() : 'ar'; }
+  // Accept Arabic-Indic / Persian digits and common separators in phone numbers
+  function normalizeDigits(v) {
+    return v.replace(/[٠-٩]/g, function (d) { return String(d.charCodeAt(0) - 0x0660); })
+            .replace(/[۰-۹]/g, function (d) { return String(d.charCodeAt(0) - 0x06F0); });
+  }
+  function validPhone(v) { return /^\+?\d{8,15}$/.test(normalizeDigits(v).replace(/[\s\-().]/g, '')); }
+
   var status = document.getElementById('formStatus');
-  if (form) {
+  if (form && cfg) {
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
+      var get = function (id) { return document.getElementById(id).value.trim(); };
+      var checks = [
+        ['cName', get('cName') !== ''],
+        ['cPhone', validPhone(get('cPhone'))],
+        ['cQty', get('cQty') !== '']
+      ];
       var ok = true;
-      ['cName', 'cEmail', 'cMsg'].forEach(function (id) {
-        var input = document.getElementById(id);
-        var valid = input.value.trim() !== '' && (input.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()));
-        input.parentElement.classList.toggle('has-error', !valid);
-        if (!valid) ok = false;
+      checks.forEach(function (c) {
+        document.getElementById(c[0]).parentElement.classList.toggle('has-error', !c[1]);
+        if (!c[1]) ok = false;
       });
       status.classList.toggle('is-error', !ok);
-      if (!ok) { status.textContent = tr('form.error', 'Please complete all required fields with a valid email.'); return; }
-      status.textContent = tr('form.ok', 'Preview only: this form is not connected yet, so nothing was sent.');
-      form.reset();
+      if (!ok) { status.textContent = tr('form.error', 'Please enter your name, a valid phone number and the quantity.'); return; }
+
+      var product = document.getElementById('cProduct');
+      var dash = '—';
+      var lines = [
+        tr('wa.q.title', 'Quotation request — EGY PACK'),
+        '',
+        tr('wa.q.name', 'Name') + ': ' + get('cName'),
+        tr('wa.q.company', 'Company') + ': ' + (get('cCompany') || dash),
+        tr('wa.q.phone', 'Phone') + ': ' + normalizeDigits(get('cPhone')),
+        tr('wa.q.product', 'Product') + ': ' + product.options[product.selectedIndex].text.trim(),
+        tr('wa.q.qty', 'Quantity') + ': ' + get('cQty'),
+        tr('wa.q.notes', 'Notes') + ': ' + (get('cMsg') || dash)
+      ];
+      var url = cfg.whatsappLink(lines.join('\n'));
+      form.setAttribute('data-wa-url', url);   // handy for checking the generated link
+
+      // Open the official WhatsApp chat. Nothing is sent until the customer presses Send there,
+      // so the message below never claims the request was delivered.
+      var win = window.open(url, '_blank');
+      if (win) { try { win.opener = null; } catch (e) { /* cross-origin */ } }
+      status.textContent = '';
+      var p1 = document.createElement('span');
+      p1.textContent = tr('form.opened', 'WhatsApp has opened with your request. To send it, press Send inside WhatsApp.') + ' ';
+      var p2 = document.createElement('span');
+      p2.textContent = tr('form.fallback', 'If WhatsApp did not open, use this link:') + ' ';
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = tr('form.fallbackLink', 'Open WhatsApp with your request');
+      status.appendChild(p1); status.appendChild(p2); status.appendChild(a);
     });
+  }
+
+  /* ---------- WhatsApp links follow the active language ---------- */
+  function syncWhatsApp() {
+    if (!cfg) return;
+    var href = cfg.whatsappLink(cfg.whatsappGreeting[currentLang()] || cfg.whatsappGreeting.ar);
+    document.querySelectorAll('.js-wa').forEach(function (a) { a.href = href; });
+  }
+  syncWhatsApp();
+  document.addEventListener('egypack:langchange', syncWhatsApp);
+
+  /* Facebook link appears only once its official URL is configured */
+  var fb = document.getElementById('footerFacebook');
+  if (fb && cfg && cfg.facebookUrl) { fb.querySelector('a').href = cfg.facebookUrl; fb.hidden = false; }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  var waFloat = document.getElementById('waFloat');
+  if (waFloat && 'IntersectionObserver' in window) {
+    // On small screens, step aside while the 3D controls fill the bottom of the screen
+    var busy = new Set();
+    var small = window.matchMedia('(max-width: 860px)');
+    var update = function () { waFloat.classList.toggle('is-tucked', small.matches && busy.size > 0); };
+    var tuckObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) busy.add(e.target); else busy.delete(e.target); });
+      update();
+    }, { threshold: 0.15 });
+    ['studioViewport', 'wrapStage'].forEach(function (id) { var el = document.getElementById(id); if (el) tuckObs.observe(el); });
+    if (small.addEventListener) small.addEventListener('change', update);
   }
 
   /* ---------- Footer year ---------- */

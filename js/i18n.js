@@ -9,8 +9,13 @@
   var DEFAULT_LANG = 'ar';
 
   var en = {
-    'meta.title': 'EGY PACK | إيجي باك — Industrial Stretch Film Manufacturing',
-    'meta.description': 'EGY PACK (إيجي باك) — industrial stretch film manufacturing.',
+    'meta.title': 'EGY PACK | مؤسسة إيجي باك للاسترتش الصناعي — Industrial Stretch Film',
+    'meta.description': 'EGY PACK: industrial stretch film manufacturing, cutting & trading, with more than 15 years of experience. Phone 01003070334 · WhatsApp +201065786620',
+
+    'company.name': 'EGY PACK',
+    'company.exp': 'Industrial Stretch Film Manufacturing, Cutting &amp; Trading — more than 15 years of experience.',
+    'company.years': 'Years of experience',
+    'wa.label': 'Chat with us on WhatsApp',
 
     'loader.label': 'Loading EGY PACK',
 
@@ -29,7 +34,7 @@
     'hero.eyebrow': 'Industrial Stretch Film Manufacturing',
     'hero.title': 'Engineered to <span class="text-cyan">Hold</span><br />\n          the World Together',
     'hero.alt': 'إيجي باك — للاستريتش الصناعي',
-    'hero.lead': 'Industrial stretch film for pallet wrapping and protecting goods in storage and transport.\n          [Company introduction — to be provided by EGY PACK]',
+    'hero.lead': 'EGY PACK: industrial stretch film manufacturing, cutting &amp; trading,\n          with more than 15 years of experience.',
     'hero.ctaProducts': 'Explore Products',
     'hero.ctaQuote': 'Request a Quote',
     'hero.stat1': 'Key figure 1',
@@ -39,8 +44,8 @@
 
     'about.eyebrow': 'About EGY PACK',
     'about.title': 'About <span class="text-silver">EGY PACK</span>',
-    'about.body': 'EGY PACK manufactures industrial stretch film.\n            [Company overview — history, facilities and capabilities to be provided by EGY PACK]',
-    'about.alt': 'إيجي باك لصناعة الاستريتش الصناعي.\n            [نبذة عن الشركة — يتم توفيرها من إيجي باك]',
+    'about.body': 'EGY PACK specializes in industrial stretch film manufacturing, cutting and trading,\n            with more than 15 years of experience in the field.',
+    'about.alt': 'مؤسسة إيجي باك للاسترتش الصناعي — تصنيع وتقطيع وتجارة الاسترتش الصناعي.',
     'about.cap1': '[Capability 1 — to be confirmed]',
     'about.cap2': '[Capability 2 — to be confirmed]',
     'about.cap3': '[Capability 3 — to be confirmed]',
@@ -119,19 +124,38 @@
     'contact.eyebrow': 'Contact',
     'contact.title': 'Let\'s Wrap <span class="text-cyan">Your Next Load</span>',
     'contact.body': 'Tell us about your wrapping requirements and we will get back to you.',
-    'contact.details': 'Phone: [TBC] · Email: [TBC] · Address: [TBC]',
+    'contact.phone': 'Phone',
+    'contact.whatsappLabel': 'WhatsApp',
+    'contact.emailLabel': 'Email',
+    'contact.call': 'Call Now',
+    'contact.whatsapp': 'Message Us on WhatsApp',
+    'contact.email': 'Send an Email',
     'contact.alt': 'تواصل معنا للحصول على عرض سعر',
 
-    'form.name': 'Full name',
-    'form.email': 'Email',
-    'form.product': 'Product',
-    'form.message': 'Message',
-    'form.submit': 'Send Request',
-    'form.error': 'Please complete all required fields with a valid email.',
-    'form.ok': 'Preview only: this form is not connected yet, so nothing was sent.',
+    'form.name': 'Customer name',
+    'form.company': 'Company name (optional)',
+    'form.phone': 'Phone number',
+    'form.product': 'Product type',
+    'form.qty': 'Quantity',
+    'form.qtyPh': 'e.g. 50 rolls',
+    'form.message': 'Additional notes (optional)',
+    'form.submit': 'Send Request via WhatsApp',
+    'form.hint': 'WhatsApp opens with a ready message containing your details, for you to review and send yourself.',
+    'form.error': 'Please enter your name, a valid phone number and the quantity.',
+    'form.opened': 'WhatsApp has opened with your request. To send it, press Send inside WhatsApp.',
+    'form.fallback': 'If WhatsApp did not open, use this link:',
+    'form.fallbackLink': 'Open WhatsApp with your request',
+    'wa.q.title': 'Quotation request — EGY PACK',
+    'wa.q.name': 'Name',
+    'wa.q.company': 'Company',
+    'wa.q.phone': 'Phone',
+    'wa.q.product': 'Product',
+    'wa.q.qty': 'Quantity',
+    'wa.q.notes': 'Notes',
 
-    'footer.tagline': 'Industrial Stretch Film Manufacturing',
-    'footer.alt': 'إيجي باك للاستريتش الصناعي',
+    'footer.tagline': 'EGY PACK — Industrial Stretch Film Manufacturing, Cutting &amp; Trading',
+    'footer.alt': 'مؤسسة إيجي باك للاسترتش الصناعي',
+    'footer.facebook': 'Our Facebook page',
     'footer.label': 'Footer',
     'footer.contact': 'Contact',
     'footer.rights': 'EGY PACK. All rights reserved.'
@@ -141,8 +165,17 @@
   var ar = {
     'meta.title': document.title,
     'meta.description': '',
-    'form.error': 'يرجى استكمال جميع الحقول المطلوبة وإدخال بريد إلكتروني صحيح.',
-    'form.ok': 'معاينة فقط: النموذج غير متصل بعد، لذلك لم يتم إرسال أي شيء.'
+    'form.error': 'يرجى إدخال الاسم ورقم هاتف صحيح والكمية.',
+    'form.opened': 'تم فتح واتساب برسالة طلبك. لإرسالها اضغط زر الإرسال داخل واتساب.',
+    'form.fallback': 'إذا لم يفتح واتساب، استخدم هذا الرابط:',
+    'form.fallbackLink': 'افتح واتساب برسالة طلبك',
+    'wa.q.title': 'طلب عرض سعر — إيجي باك',
+    'wa.q.name': 'الاسم',
+    'wa.q.company': 'الشركة',
+    'wa.q.phone': 'الهاتف',
+    'wa.q.product': 'المنتج',
+    'wa.q.qty': 'الكمية',
+    'wa.q.notes': 'ملاحظات'
   };
 
   var metaDesc = document.querySelector('meta[name="description"]');

@@ -322,6 +322,48 @@ p { margin: 0 0 1em; }
 [dir="rtl"] .hero__vignette { background: linear-gradient(270deg, rgba(3,8,32,.85) 0%, rgba(3,8,32,.35) 45%, transparent 70%), linear-gradient(0deg, var(--navy-950) 0%, transparent 25%); }
 [dir="rtl"] .card__specs li::before { content: "◂ "; }
 
+/* ---------- Official contact details ---------- */
+.contact__company { margin: 6px 0 18px; }
+.contact__name { margin: 0 0 4px; font-size: 1.15rem; font-weight: 700; color: var(--white); }
+.contact__desc { margin: 0; color: var(--silver); }
+.contact__list { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 10px; }
+.contact__list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(199,207,219,.08); }
+.contact__list span { min-width: 8.5em; font-size: .85rem; color: var(--silver-dark); }
+.contact__list a { color: var(--white); font-weight: 600; unicode-bidi: isolate; transition: color .2s; }
+.contact__list a:hover { color: var(--cyan); }
+.contact__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.form__hint { margin: -6px 0 0; font-size: .8rem; color: var(--silver-dark); }
+.form__status a { color: var(--white); text-decoration: underline; }
+.footer__company { color: var(--white) !important; font-weight: 600; }
+.footer__contact { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: .88rem; }
+.footer__contact span { color: var(--silver-dark); }
+.footer__contact a { color: var(--silver); unicode-bidi: isolate; transition: color .2s; }
+.footer__contact a:hover { color: var(--cyan); }
+.contact__list a:focus-visible, .footer__contact a:focus-visible, .contact__actions .btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+/* ---------- Floating WhatsApp button ---------- */
+.wa-float {
+  position: fixed; z-index: 90; inset-inline-end: 20px; bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; color: var(--white);
+  background: radial-gradient(circle at 30% 25%, var(--navy-600), var(--navy-900));
+  border: 1px solid rgba(0,229,255,.55);
+  box-shadow: 0 10px 28px rgba(0,0,0,.45), 0 0 18px rgba(0,229,255,.28), inset 0 1px 0 rgba(255,255,255,.12);
+  transition: transform .3s ease, box-shadow .3s ease, opacity .35s ease, visibility .35s;
+}
+.wa-float svg { width: 27px; height: 27px; fill: currentColor; }
+.wa-float::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px solid rgba(0,229,255,.5); animation: wa-ring 3.2s ease-out infinite; pointer-events: none; }
+.wa-float:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 14px 32px rgba(0,0,0,.5), 0 0 28px rgba(0,229,255,.5); color: var(--cyan); }
+.wa-float:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.wa-float.is-tucked, body.is-loading .wa-float { opacity: 0; visibility: hidden; transform: translateY(12px); }
+@keyframes wa-ring { 0% { transform: scale(1); opacity: .7; } 70%, 100% { transform: scale(1.45); opacity: 0; } }
+@media (max-width: 560px) {
+  .wa-float { width: 50px; height: 50px; inset-inline-end: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+  .wa-float svg { width: 24px; height: 24px; }
+  .contact__list span { min-width: 0; width: 100%; }
+  .footer__bottom { padding-bottom: 84px; }   /* clear the floating WhatsApp button */
+}
+@media (prefers-reduced-motion: reduce) { .wa-float::after { animation: none; display: none; } }
+
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
