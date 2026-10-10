@@ -21,3 +21,9 @@ Official EGY PACK 3D Industrial Website — إيجي باك للاستريتش �
 Serve the folder with any static server, e.g. `python3 -m http.server 8080`, then open http://localhost:8080.
 Three.js is served locally from `vendor/three/` via an import map.
 If WebGL is unavailable, the hero falls back to a static gradient, and the Product Studio and wrapping section show static illustrations.
+
+## Illustrative images (temporary)
+`assets/images/process/` (5 manufacturing stages) and `assets/images/industries/` (3 industries) hold
+**temporary illustrative 3D renders**, labelled on the site as "صورة توضيحية / Illustrative image".
+They are not photographs of the EGY PACK factory. To use real photos, replace each file with a photo
+of the same name (WebP, about 960×640, 3:2), and remove the label and note once all are real.

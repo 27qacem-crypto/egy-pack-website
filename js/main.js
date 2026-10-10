@@ -167,12 +167,15 @@
         tr('wa.q.title', 'Quotation request — EGY PACK'),
         '',
         tr('wa.q.name', 'Name') + ': ' + get('cName'),
-        tr('wa.q.company', 'Company') + ': ' + (get('cCompany') || dash),
+        tr('wa.q.company', 'Company') + ': ' + (get('cCompany') || dash)
+      ].concat(document.getElementById('cIndustry').value ? [
+        tr('wa.q.industry', 'Business type') + ': ' + document.getElementById('cIndustry').options[document.getElementById('cIndustry').selectedIndex].text.trim()
+      ] : []).concat([
         tr('wa.q.phone', 'Phone') + ': ' + normalizeDigits(get('cPhone')),
         tr('wa.q.product', 'Product') + ': ' + product.options[product.selectedIndex].text.trim(),
         tr('wa.q.qty', 'Quantity') + ': ' + get('cQty'),
         tr('wa.q.notes', 'Notes') + ': ' + (get('cMsg') || dash)
-      ];
+      ]);
       var url = cfg.whatsappLink(lines.join('\n'));
       form.setAttribute('data-wa-url', url);   // handy for checking the generated link
 
@@ -191,6 +194,20 @@
       status.appendChild(p1); status.appendChild(p2); status.appendChild(a);
     });
   }
+
+  /* ---------- Industry cards → quotation form with the industry preselected ---------- */
+  document.querySelectorAll('.ind-card[data-industry]').forEach(function (card) {
+    card.addEventListener('click', function (ev) {
+      var sel = document.getElementById('cIndustry');
+      if (!sel) return;
+      ev.preventDefault();
+      sel.value = card.getAttribute('data-industry');
+      var contact = document.getElementById('contact');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      contact.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      setTimeout(function () { document.getElementById('cName').focus({ preventScroll: true }); }, reduce ? 0 : 700);
+    });
+  });
 
   /* ---------- WhatsApp links follow the active language ---------- */
   function syncWhatsApp() {
