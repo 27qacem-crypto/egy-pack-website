@@ -149,7 +149,7 @@
     'mfg.s2.title': 'Film Production',
     'mfg.s2.alt2': 'مرحلة التصنيع',
     'mfg.s2.desc': 'The raw materials enter the primary manufacturing machine to produce industrial stretch film.',
-    'mfg.s2.alt': 'Illustrative image: stretch-film production machine',
+    'mfg.s2.alt': 'Illustrative image: stretch-film production line with a film roll',
     'mfg.s3.title': 'Jumbo Roll Production',
     'mfg.s3.alt2': 'بكرة جامبو',
     'mfg.s3.desc': 'The produced film is collected on jumbo rolls weighing 30 to 40 kg.',
