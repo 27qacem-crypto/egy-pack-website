@@ -58,7 +58,7 @@
     'products.sub': 'Product names, descriptions and specifications to be confirmed by EGY PACK.',
     'products.p1': 'Automatic Stretch Film',
     'products.p2': 'Hand Stretch Film',
-    'products.p3': 'Pre-Stretched Film',
+    'products.p3': 'Power Stretch Film',
     'products.p4': 'Colored &amp; Custom Film',
     'products.desc': '[Product description — to be provided]',
     'products.width': 'Width: TBC',
