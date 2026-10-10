@@ -167,6 +167,125 @@
             <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
           </article>
         </div>
+
+        <!-- ============ 3D PRODUCT STUDIO ============ -->
+        <div class="studio" id="studio">
+          <div class="studio__head reveal">
+            <p class="eyebrow"><span class="dot"></span> <span data-i18n="studio.eyebrow">استوديو المنتج ثلاثي الأبعاد</span></p>
+            <h3 class="studio__title" data-i18n="studio.title">استكشف الرول من <span class="text-cyan">كل زاوية</span></h3>
+          </div>
+          <div class="studio__layout">
+            <div class="studio__viewport" id="studioViewport">
+              <canvas id="studioCanvas" class="studio__canvas" role="img" aria-label="نموذج ثلاثي الأبعاد لرول استريتش يمكن تدويره وتكبيره" data-i18n-attr="aria-label:studio.canvasLabel"></canvas>
+              <p class="studio__status" id="studioLoading" data-i18n="studio.loading">جارٍ تحميل العرض ثلاثي الأبعاد…</p>
+              <div class="studio__fallback" id="studioFallback" hidden>
+                <svg viewBox="0 0 200 200" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="sfFilm" x1="0" x2="1"><stop offset="0" stop-color="#8fa9c8"/><stop offset=".45" stop-color="#e9f2fb"/><stop offset="1" stop-color="#7d93b3"/></linearGradient>
+                  </defs>
+                  <ellipse cx="100" cy="176" rx="74" ry="10" fill="rgba(0,229,255,.18)"/>
+                  <rect x="52" y="40" width="96" height="130" fill="url(#sfFilm)" opacity=".9"/>
+                  <ellipse cx="100" cy="170" rx="48" ry="12" fill="#9fb5cf"/>
+                  <ellipse cx="100" cy="40" rx="48" ry="12" fill="#dbe7f3"/>
+                  <ellipse cx="100" cy="40" rx="16" ry="4.5" fill="#9a7246"/>
+                  <ellipse cx="100" cy="40" rx="12" ry="3.2" fill="#3b2a18"/>
+                </svg>
+                <p data-i18n="studio.fallback">العرض ثلاثي الأبعاد غير مدعوم على هذا الجهاز. ما زال بإمكانك اختيار المنتج ومراجعة مواصفاته.</p>
+              </div>
+              <span class="studio__badge" data-i18n="studio.illustrative">نموذج توضيحي</span>
+              <p class="studio__hint" id="studioHint" data-i18n="studio.hint">اسحب للتدوير · استخدم العجلة أو إصبعين للتكبير</p>
+              <div class="studio__tools" role="toolbar" aria-label="أدوات العرض" data-i18n-attr="aria-label:studio.tools">
+                <button type="button" class="tool-btn" data-act="rotate-left" aria-label="تدوير لليسار" title="تدوير لليسار" data-i18n-attr="aria-label:studio.rotateLeft;title:studio.rotateLeft">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v5h5"/></svg>
+                </button>
+                <button type="button" class="tool-btn" data-act="rotate-right" aria-label="تدوير لليمين" title="تدوير لليمين" data-i18n-attr="aria-label:studio.rotateRight;title:studio.rotateRight">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>
+                </button>
+                <button type="button" class="tool-btn" data-act="zoom-in" aria-label="تكبير" title="تكبير" data-i18n-attr="aria-label:studio.zoomIn;title:studio.zoomIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M11 8v6M8 11h6M16.5 16.5L21 21"/></svg>
+                </button>
+                <button type="button" class="tool-btn" data-act="zoom-out" aria-label="تصغير" title="تصغير" data-i18n-attr="aria-label:studio.zoomOut;title:studio.zoomOut">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M16.5 16.5L21 21"/></svg>
+                </button>
+                <button type="button" class="tool-btn tool-btn--text" data-act="reset" data-i18n="studio.reset">إعادة الضبط</button>
+              </div>
+            </div>
+
+            <aside class="studio__panel glass-card" aria-labelledby="studioName">
+              <p class="studio__label" id="studioChooseLabel" data-i18n="studio.choose">اختر المنتج</p>
+              <div class="studio__selector" role="radiogroup" aria-labelledby="studioChooseLabel">
+                <button type="button" role="radio" aria-checked="true" data-product="machine" data-i18n="products.p1">استريتش ماكينة</button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="hand" data-i18n="products.p2">استريتش يدوي</button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="pre-stretched" data-i18n="products.p3">استريتش مسبق الشد</button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="colored-custom" data-i18n="products.p4">استريتش ملون ومخصص</button>
+              </div>
+              <h4 class="studio__name" id="studioName" data-i18n="products.p1">استريتش ماكينة</h4>
+              <p class="studio__desc" data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
+              <dl class="studio__specs">
+                <div><dt data-i18n="spec.width">العرض</dt><dd data-spec="width">يُحدَّد</dd></div>
+                <div><dt data-i18n="spec.thickness">السُمك</dt><dd data-spec="thickness">يُحدَّد</dd></div>
+                <div><dt data-i18n="spec.length">طول الرول</dt><dd data-spec="length">يُحدَّد</dd></div>
+                <div><dt data-i18n="spec.weight">وزن الرول</dt><dd data-spec="weight">يُحدَّد</dd></div>
+                <div><dt data-i18n="spec.core">قطر الكور</dt><dd data-spec="core">يُحدَّد</dd></div>
+                <div><dt data-i18n="spec.color">اللون</dt><dd data-spec="color">يُحدَّد</dd></div>
+              </dl>
+              <p class="studio__note" data-i18n="studio.note">المواصفات قيد التأكيد من إيجي باك، والنموذج ثلاثي الأبعاد للتوضيح فقط.</p>
+              <button type="button" class="btn btn--primary btn--block" id="studioQuote" data-i18n="studio.quote">اطلب عرض سعر لهذا المنتج</button>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE THE PROTECTION (scroll-driven wrapping) ============ -->
+    <section class="wrapx" id="protection" aria-labelledby="wrapxTitle">
+      <div class="wrapx__track" id="wrapTrack">
+        <div class="wrapx__stage" id="wrapStage">
+          <canvas id="wrapCanvas" class="wrapx__canvas" role="img" aria-label="عرض ثلاثي الأبعاد لتغليف بالتة بالاستريتش" data-i18n-attr="aria-label:wrap.canvasLabel"></canvas>
+          <div class="wrapx__fallback" id="wrapFallback" hidden>
+            <svg viewBox="0 0 240 200" aria-hidden="true">
+              <defs>
+                <pattern id="wfFilm" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)"><rect width="10" height="10" fill="rgba(223,241,255,.18)"/><rect width="10" height="2" fill="rgba(223,241,255,.28)"/></pattern>
+              </defs>
+              <ellipse cx="120" cy="186" rx="100" ry="10" fill="rgba(0,229,255,.16)"/>
+              <rect x="40" y="166" width="160" height="16" fill="#b48a58"/>
+              <rect x="48" y="182" width="20" height="6" fill="#8d6a42"/><rect x="110" y="182" width="20" height="6" fill="#8d6a42"/><rect x="172" y="182" width="20" height="6" fill="#8d6a42"/>
+              <g fill="#b07f4c" stroke="#6b4a29" stroke-width="2">
+                <rect x="42" y="118" width="78" height="48"/><rect x="120" y="118" width="78" height="48"/>
+                <rect x="42" y="70" width="78" height="48"/><rect x="120" y="70" width="78" height="48"/>
+                <rect x="42" y="22" width="78" height="48"/><rect x="120" y="22" width="78" height="48"/>
+              </g>
+              <rect x="36" y="18" width="168" height="160" rx="4" fill="url(#wfFilm)" stroke="rgba(0,229,255,.45)" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="wrapx__veil"></div>
+          <div class="container wrapx__ui">
+            <header class="wrapx__head">
+              <p class="eyebrow"><span class="dot"></span> <span data-i18n="wrap.eyebrow">تجربة تفاعلية</span></p>
+              <h2 class="section__title" id="wrapxTitle" data-i18n="wrap.title">شاهد <span class="text-cyan">قوة التغليف</span></h2>
+              <p class="wrapx__sub" data-i18n="wrap.sub">مرّر لأسفل لمشاهدة مراحل تغليف بالتة بالاستريتش. عرض توضيحي.</p>
+            </header>
+            <div class="wrapx__panel glass-card">
+              <p class="wrapx__step"><span data-i18n="wrap.stage">المرحلة</span> <span class="wrapx__num"><span id="wrapStageNum">1</span> / 6</span></p>
+              <ol class="wrapx__captions" id="wrapCaptions">
+                <li class="is-active" data-i18n="wrap.c1">حمولة جاهزة: كراتين مرصوصة على بالتة خشبية، دون تغليف.</li>
+                <li data-i18n="wrap.c2">تقترب بكرة الاستريتش من البالتة.</li>
+                <li data-i18n="wrap.c3">يبدأ التغليف من القاعدة لربط الحمولة بالبالتة.</li>
+                <li data-i18n="wrap.c4">يرتفع الفيلم طبقة فوق طبقة حول الكراتين.</li>
+                <li data-i18n="wrap.c5">اكتمل التغليف من القاعدة حتى القمة.</li>
+                <li data-i18n="wrap.c6">الحمولة الآن مغلّفة بالكامل وجاهزة للنقل.</li>
+              </ol>
+              <div class="wrapx__progress" aria-hidden="true"><span id="wrapProgress"></span></div>
+              <div class="wrapx__controls">
+                <button type="button" class="btn btn--ghost btn--sm" id="wrapReplay" data-i18n="wrap.replay">إعادة التشغيل</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="wrapPlay" hidden>
+                  <span data-i18n="wrap.pause" id="wrapPauseLabel">إيقاف مؤقت</span><span data-i18n="wrap.play" id="wrapPlayLabel" hidden>تشغيل</span>
+                </button>
+                <span class="wrapx__hint" id="wrapDragHint" hidden data-i18n="wrap.drag">اسحب لتدوير البالتة</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -268,12 +387,13 @@
 
   <script type="importmap">
     { "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        "three": "./vendor/three/build/three.module.min.js",
+        "three/addons/": "./vendor/three/addons/"
     } }
   </script>
   <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
   <script type="module" src="js/hero3d.js"></script>
+  <script type="module" src="js/experiences.js"></script>
 </body>
 </html>
