@@ -133,6 +133,7 @@
 
   /* ---------- Contact form ---------- */
   var form = document.getElementById('contactForm');
+  function tr(key, fallback) { return window.EGY_I18N ? window.EGY_I18N.t(key) : fallback; }
   var status = document.getElementById('formStatus');
   if (form) {
     form.addEventListener('submit', function (ev) {
@@ -145,8 +146,8 @@
         if (!valid) ok = false;
       });
       status.classList.toggle('is-error', !ok);
-      if (!ok) { status.textContent = 'Please complete all required fields with a valid email.'; return; }
-      status.textContent = 'Preview only: this form is not connected yet, so nothing was sent.';
+      if (!ok) { status.textContent = tr('form.error', 'Please complete all required fields with a valid email.'); return; }
+      status.textContent = tr('form.ok', 'Preview only: this form is not connected yet, so nothing was sent.');
       form.reset();
     });
   }

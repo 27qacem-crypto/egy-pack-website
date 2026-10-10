@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EGY PACK | إيجي باك — Industrial Stretch Film Manufacturing</title>
-  <meta name="description" content="EGY PACK (إيجي باك) — industrial stretch film manufacturing." />
+  <title>إيجي باك | EGY PACK — تصنيع الاستريتش الصناعي</title>
+  <meta name="description" content="إيجي باك (EGY PACK) — تصنيع الاستريتش الصناعي." />
   <meta name="theme-color" content="#0a1a4a" />
 
   <!-- Official EGY PACK favicon -->
@@ -12,9 +12,11 @@
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="assets/images/app_icon.ico" />
 
-  <meta property="og:title" content="EGY PACK | إيجي باك" />
-  <meta property="og:description" content="Industrial Stretch Film Manufacturing" />
+  <meta property="og:title" content="إيجي باك | EGY PACK" />
+  <meta property="og:description" content="تصنيع الاستريتش الصناعي — Industrial Stretch Film Manufacturing" />
   <meta property="og:image" content="assets/images/logo.png" />
+  <meta property="og:locale" content="ar_EG" />
+  <meta property="og:locale:alternate" content="en_US" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +26,7 @@
 <body class="is-loading">
 
   <!-- ============ LOADING SCREEN ============ -->
-  <div id="loader" class="loader" aria-live="polite" aria-label="Loading EGY PACK">
+  <div id="loader" class="loader" aria-live="polite" aria-label="جارٍ تحميل إيجي باك" data-i18n-attr="aria-label:loader.label">
     <div class="loader__glow"></div>
     <div class="loader__ring">
       <div class="logo-badge logo-badge--xl">
@@ -32,28 +34,31 @@
       </div>
     </div>
     <div class="loader__bar"><span id="loaderProgress"></span></div>
-    <p class="loader__text">EGY PACK <span class="ar">· إيجي باك</span></p>
+    <p class="loader__text"><span lang="en" dir="ltr">EGY PACK</span> <span class="ar">· إيجي باك</span></p>
   </div>
 
   <!-- ============ NAVIGATION ============ -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#home" class="nav__brand" aria-label="EGY PACK home">
+      <a href="#home" class="nav__brand" aria-label="الصفحة الرئيسية لإيجي باك" data-i18n-attr="aria-label:nav.homeLabel">
         <span class="logo-badge logo-badge--nav">
           <img src="assets/images/logo.png" alt="EGY PACK — إيجي باك" width="207" height="147" />
         </span>
       </a>
-      <nav class="nav__links" id="navLinks" aria-label="Main">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#technology">Technology</a>
-        <a href="#industries">Industries</a>
-        <a href="#contact" class="btn btn--ghost btn--sm">Get a Quote</a>
+      <nav class="nav__links" id="navLinks" aria-label="القائمة الرئيسية" data-i18n-attr="aria-label:nav.label">
+        <a href="#home" data-i18n="nav.home">الرئيسية</a>
+        <a href="#about" data-i18n="nav.about">من نحن</a>
+        <a href="#products" data-i18n="nav.products">المنتجات</a>
+        <a href="#technology" data-i18n="nav.technology">التقنية</a>
+        <a href="#industries" data-i18n="nav.industries">القطاعات</a>
+        <a href="#contact" class="btn btn--ghost btn--sm" data-i18n="nav.quote">اطلب عرض سعر</a>
       </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav__actions">
+        <button type="button" class="btn btn--ghost btn--sm lang-switch" id="langSwitch" lang="en" aria-label="Switch to English">EN</button>
+        <button class="nav__toggle" id="navToggle" aria-label="فتح القائمة" data-i18n-attr="aria-label:nav.toggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -63,47 +68,46 @@
       <canvas id="hero3d" class="hero__canvas" aria-hidden="true"></canvas>
       <div class="hero__vignette"></div>
       <div class="container hero__content">
-        <p class="eyebrow"><span class="dot"></span> Industrial Stretch Film Manufacturing</p>
-        <h1 class="hero__title">
-          Engineered to <span class="text-cyan">Hold</span><br />
-          the World Together
+        <p class="eyebrow"><span class="dot"></span> <span data-i18n="hero.eyebrow">تصنيع الاستريتش الصناعي</span></p>
+        <h1 class="hero__title" data-i18n="hero.title">
+          صُمّم <span class="text-cyan">ليُثبّت</span><br />
+          العالم معًا
         </h1>
-        <p class="hero__ar ar">إيجي باك — للاستريتش الصناعي</p>
-        <p class="hero__lead">
-          Industrial stretch film for pallet wrapping and protecting goods in storage and transport.
-          [Company introduction — to be provided by EGY PACK]
+        <p class="hero__ar alt-lang" lang="en" dir="ltr" data-i18n="hero.alt">EGY PACK — Industrial Stretch Film</p>
+        <p class="hero__lead" data-i18n="hero.lead">
+          استريتش صناعي لتغليف البالتات وحماية البضائع أثناء التخزين والنقل.
+          [نبذة تعريفية عن الشركة — يتم توفيرها من إيجي باك]
         </p>
         <div class="hero__cta">
-          <a href="#products" class="btn btn--primary">Explore Products</a>
-          <a href="#contact" class="btn btn--ghost">Request a Quote</a>
+          <a href="#products" class="btn btn--primary" data-i18n="hero.ctaProducts">استكشف المنتجات</a>
+          <a href="#contact" class="btn btn--ghost" data-i18n="hero.ctaQuote">اطلب عرض سعر</a>
         </div>
         <ul class="hero__stats">
-          <li><strong class="tbc">TBC</strong><span>Key figure 1</span></li>
-          <li><strong class="tbc">TBC</strong><span>Key figure 2</span></li>
-          <li><strong class="tbc">TBC</strong><span>Key figure 3</span></li>
+          <li><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="hero.stat1">رقم رئيسي 1</span></li>
+          <li><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="hero.stat2">رقم رئيسي 2</span></li>
+          <li><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="hero.stat3">رقم رئيسي 3</span></li>
         </ul>
       </div>
-      <a href="#about" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+      <a href="#about" class="hero__scroll" aria-label="انتقل للأسفل" data-i18n-attr="aria-label:hero.scroll"><span></span></a>
     </section>
 
     <!-- ============ ABOUT ============ -->
     <section class="section" id="about">
       <div class="container about">
         <div class="about__text reveal">
-          <p class="eyebrow"><span class="dot"></span> About EGY PACK</p>
-          <h2 class="section__title">About <span class="text-silver">EGY PACK</span></h2>
-          <p>
-            EGY PACK manufactures industrial stretch film.
-            [Company overview — history, facilities and capabilities to be provided by EGY PACK]
-          </p>
-          <p class="ar ar--block">
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="about.eyebrow">عن إيجي باك</span></p>
+          <h2 class="section__title" data-i18n="about.title">عن <span class="text-silver">إيجي باك</span></h2>
+          <p data-i18n="about.body">
             إيجي باك لصناعة الاستريتش الصناعي.
-            [نبذة عن الشركة — يتم توفيرها من إيجي باك]
+            [نبذة عن الشركة — التاريخ والمرافق والإمكانات، يتم توفيرها من إيجي باك]
+          </p>
+          <p class="ar--block alt-lang" lang="en" dir="ltr" data-i18n="about.alt">
+            EGY PACK manufactures industrial stretch film.
           </p>
           <ul class="checklist">
-            <li>[Capability 1 — to be confirmed]</li>
-            <li>[Capability 2 — to be confirmed]</li>
-            <li>[Capability 3 — to be confirmed]</li>
+            <li data-i18n="about.cap1">[الإمكانية 1 — يتم تأكيدها]</li>
+            <li data-i18n="about.cap2">[الإمكانية 2 — يتم تأكيدها]</li>
+            <li data-i18n="about.cap3">[الإمكانية 3 — يتم تأكيدها]</li>
           </ul>
         </div>
         <div class="about__visual reveal">
@@ -112,9 +116,9 @@
               <img src="assets/images/logo.png" alt="EGY PACK — إيجي باك" width="207" height="147" loading="lazy" />
             </div>
             <div class="about__metrics">
-              <div><strong class="tbc">TBC</strong><span>Metric 1</span></div>
-              <div><strong class="tbc">TBC</strong><span>Metric 2</span></div>
-              <div><strong class="tbc">TBC</strong><span>Metric 3</span></div>
+              <div><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="about.metric1">مؤشر 1</span></div>
+              <div><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="about.metric2">مؤشر 2</span></div>
+              <div><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="about.metric3">مؤشر 3</span></div>
             </div>
           </div>
         </div>
@@ -125,42 +129,42 @@
     <section class="section section--alt" id="products">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow"><span class="dot"></span> Product Range</p>
-          <h2 class="section__title">Stretch Film <span class="text-cyan">Solutions</span></h2>
-          <p class="section__sub">Product names, descriptions and specifications to be confirmed by EGY PACK.</p>
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="products.eyebrow">مجموعة المنتجات</span></p>
+          <h2 class="section__title" data-i18n="products.title">حلول <span class="text-cyan">الاستريتش</span></h2>
+          <p class="section__sub" data-i18n="products.sub">أسماء المنتجات وأوصافها ومواصفاتها يتم تأكيدها من إيجي باك.</p>
         </div>
         <div class="grid grid--products">
           <article class="card tilt reveal">
             <div class="card__icon">
               <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="14" cy="24" rx="6" ry="16"/><path d="M14 8h22a6 16 0 0 1 0 32H14"/><ellipse cx="14" cy="24" rx="2" ry="6"/></svg>
             </div>
-            <h3>Machine Stretch Film</h3>
-            <p>[Product description — to be provided]</p>
-            <ul class="card__specs"><li>Width: TBC</li><li>Thickness: TBC</li><li>Core: TBC</li></ul>
+            <h3 data-i18n="products.p1">استريتش ماكينة</h3>
+            <p data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
+            <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
           </article>
           <article class="card tilt reveal">
             <div class="card__icon">
               <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="16" cy="24" rx="5" ry="12"/><path d="M16 12h16a5 12 0 0 1 0 24H16"/><path d="M8 20h-4M8 28h-4"/></svg>
             </div>
-            <h3>Hand Stretch Film</h3>
-            <p>[Product description — to be provided]</p>
-            <ul class="card__specs"><li>Width: TBC</li><li>Thickness: TBC</li><li>Core: TBC</li></ul>
+            <h3 data-i18n="products.p2">استريتش يدوي</h3>
+            <p data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
+            <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
           </article>
           <article class="card tilt reveal">
             <div class="card__icon">
               <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 24h10l4-8 8 16 4-8h10"/><circle cx="24" cy="24" r="20"/></svg>
             </div>
-            <h3>Pre-Stretched Film</h3>
-            <p>[Product description — to be provided]</p>
-            <ul class="card__specs"><li>Width: TBC</li><li>Thickness: TBC</li><li>Core: TBC</li></ul>
+            <h3 data-i18n="products.p3">استريتش مسبق الشد</h3>
+            <p data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
+            <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
           </article>
           <article class="card tilt reveal">
             <div class="card__icon">
               <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="8" width="14" height="14" rx="3"/><rect x="26" y="8" width="14" height="14" rx="3"/><rect x="8" y="26" width="14" height="14" rx="3"/><rect x="26" y="26" width="14" height="14" rx="3"/></svg>
             </div>
-            <h3>Colored &amp; Custom Film</h3>
-            <p>[Product description — to be provided]</p>
-            <ul class="card__specs"><li>Width: TBC</li><li>Thickness: TBC</li><li>Core: TBC</li></ul>
+            <h3 data-i18n="products.p4">استريتش ملون ومخصص</h3>
+            <p data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
+            <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
           </article>
         </div>
       </div>
@@ -170,15 +174,15 @@
     <section class="section" id="technology">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow"><span class="dot"></span> Manufacturing Technology</p>
-          <h2 class="section__title">How We <span class="text-silver">Manufacture</span></h2>
-          <p class="section__sub">Process steps to be confirmed by EGY PACK.</p>
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="tech.eyebrow">تقنية التصنيع</span></p>
+          <h2 class="section__title" data-i18n="tech.title">كيف <span class="text-silver">نُصنّع</span></h2>
+          <p class="section__sub" data-i18n="tech.sub">خطوات التصنيع يتم تأكيدها من إيجي باك.</p>
         </div>
         <ol class="process">
-          <li class="process__step reveal"><span class="process__num">01</span><h3>Raw Materials</h3><p>[Description — to be provided]</p></li>
-          <li class="process__step reveal"><span class="process__num">02</span><h3>Extrusion</h3><p>[Description — to be provided]</p></li>
-          <li class="process__step reveal"><span class="process__num">03</span><h3>Quality Control</h3><p>[Description — to be provided]</p></li>
-          <li class="process__step reveal"><span class="process__num">04</span><h3>Winding &amp; Packing</h3><p>[Description — to be provided]</p></li>
+          <li class="process__step reveal"><span class="process__num">01</span><h3 data-i18n="tech.s1">المواد الخام</h3><p data-i18n="tech.desc">[الوصف — يتم توفيره]</p></li>
+          <li class="process__step reveal"><span class="process__num">02</span><h3 data-i18n="tech.s2">البثق</h3><p data-i18n="tech.desc">[الوصف — يتم توفيره]</p></li>
+          <li class="process__step reveal"><span class="process__num">03</span><h3 data-i18n="tech.s3">مراقبة الجودة</h3><p data-i18n="tech.desc">[الوصف — يتم توفيره]</p></li>
+          <li class="process__step reveal"><span class="process__num">04</span><h3 data-i18n="tech.s4">اللف والتعبئة</h3><p data-i18n="tech.desc">[الوصف — يتم توفيره]</p></li>
         </ol>
       </div>
     </section>
@@ -187,15 +191,15 @@
     <section class="section section--alt" id="industries">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow"><span class="dot"></span> Industries We Serve</p>
-          <h2 class="section__title">Industries <span class="text-cyan">We Serve</span></h2>
-          <p class="section__sub">List of industries to be confirmed by EGY PACK.</p>
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="ind.eyebrow">القطاعات التي نخدمها</span></p>
+          <h2 class="section__title" data-i18n="ind.title">القطاعات <span class="text-cyan">التي نخدمها</span></h2>
+          <p class="section__sub" data-i18n="ind.sub">قائمة القطاعات يتم تأكيدها من إيجي باك.</p>
         </div>
         <div class="grid grid--industries">
-          <div class="chip reveal">[Industry 1 — TBC]</div>
-          <div class="chip reveal">[Industry 2 — TBC]</div>
-          <div class="chip reveal">[Industry 3 — TBC]</div>
-          <div class="chip reveal">[Industry 4 — TBC]</div>
+          <div class="chip reveal" data-i18n="ind.i1">[القطاع 1 — يُحدَّد]</div>
+          <div class="chip reveal" data-i18n="ind.i2">[القطاع 2 — يُحدَّد]</div>
+          <div class="chip reveal" data-i18n="ind.i3">[القطاع 3 — يُحدَّد]</div>
+          <div class="chip reveal" data-i18n="ind.i4">[القطاع 4 — يُحدَّد]</div>
         </div>
       </div>
     </section>
@@ -204,35 +208,35 @@
     <section class="section" id="contact">
       <div class="container contact">
         <div class="contact__info reveal">
-          <p class="eyebrow"><span class="dot"></span> Contact</p>
-          <h2 class="section__title">Let's Wrap <span class="text-cyan">Your Next Load</span></h2>
-          <p>Tell us about your wrapping requirements and we will get back to you.</p>
-          <p class="contact__details">Phone: [TBC] · Email: [TBC] · Address: [TBC]</p>
-          <p class="ar ar--block">تواصل معنا للحصول على عرض سعر</p>
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="contact.eyebrow">تواصل معنا</span></p>
+          <h2 class="section__title" data-i18n="contact.title">لنُغلّف <span class="text-cyan">شحنتك القادمة</span></h2>
+          <p data-i18n="contact.body">أخبرنا باحتياجاتك في التغليف وسنتواصل معك.</p>
+          <p class="contact__details" data-i18n="contact.details">الهاتف: [يُحدَّد] · البريد الإلكتروني: [يُحدَّد] · العنوان: [يُحدَّد]</p>
+          <p class="ar--block alt-lang" lang="en" dir="ltr" data-i18n="contact.alt">Contact us for a quotation</p>
         </div>
         <form class="contact__form glass-card reveal" id="contactForm" novalidate>
           <div class="field">
-            <label for="cName">Full name</label>
-            <input id="cName" name="name" type="text" required autocomplete="name" />
+            <label for="cName" data-i18n="form.name">الاسم بالكامل</label>
+            <input id="cName" name="name" type="text" required autocomplete="name" dir="auto" />
           </div>
           <div class="field">
-            <label for="cEmail">Email</label>
-            <input id="cEmail" name="email" type="email" required autocomplete="email" />
+            <label for="cEmail" data-i18n="form.email">البريد الإلكتروني</label>
+            <input id="cEmail" name="email" type="email" required autocomplete="email" dir="ltr" />
           </div>
           <div class="field">
-            <label for="cProduct">Product</label>
+            <label for="cProduct" data-i18n="form.product">المنتج</label>
             <select id="cProduct" name="product">
-              <option>Machine Stretch Film</option>
-              <option>Hand Stretch Film</option>
-              <option>Pre-Stretched Film</option>
-              <option>Colored &amp; Custom Film</option>
+              <option value="machine" data-i18n="products.p1">استريتش ماكينة</option>
+              <option value="hand" data-i18n="products.p2">استريتش يدوي</option>
+              <option value="pre-stretched" data-i18n="products.p3">استريتش مسبق الشد</option>
+              <option value="colored-custom" data-i18n="products.p4">استريتش ملون ومخصص</option>
             </select>
           </div>
           <div class="field">
-            <label for="cMsg">Message</label>
-            <textarea id="cMsg" name="message" rows="4" required></textarea>
+            <label for="cMsg" data-i18n="form.message">الرسالة</label>
+            <textarea id="cMsg" name="message" rows="4" required dir="auto"></textarea>
           </div>
-          <button type="submit" class="btn btn--primary btn--block">Send Request</button>
+          <button type="submit" class="btn btn--primary btn--block" data-i18n="form.submit">إرسال الطلب</button>
           <p class="form__status" id="formStatus" role="status"></p>
         </form>
       </div>
@@ -246,19 +250,19 @@
         <span class="logo-badge logo-badge--footer">
           <img src="assets/images/logo.png" alt="EGY PACK — إيجي باك" width="207" height="147" loading="lazy" />
         </span>
-        <p>Industrial Stretch Film Manufacturing</p>
-        <p class="ar">إيجي باك للاستريتش الصناعي</p>
+        <p data-i18n="footer.tagline">تصنيع الاستريتش الصناعي</p>
+        <p class="alt-lang" lang="en" dir="ltr" data-i18n="footer.alt">EGY PACK — Industrial Stretch Film</p>
       </div>
-      <nav class="footer__links" aria-label="Footer">
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#technology">Technology</a>
-        <a href="#industries">Industries</a>
-        <a href="#contact">Contact</a>
+      <nav class="footer__links" aria-label="روابط التذييل" data-i18n-attr="aria-label:footer.label">
+        <a href="#about" data-i18n="nav.about">من نحن</a>
+        <a href="#products" data-i18n="nav.products">المنتجات</a>
+        <a href="#technology" data-i18n="nav.technology">التقنية</a>
+        <a href="#industries" data-i18n="nav.industries">القطاعات</a>
+        <a href="#contact" data-i18n="footer.contact">تواصل معنا</a>
       </nav>
     </div>
     <div class="container footer__bottom">
-      <p>&copy; <span id="year"></span> EGY PACK. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> <span data-i18n="footer.rights">إيجي باك. جميع الحقوق محفوظة.</span></p>
     </div>
   </footer>
 
@@ -268,6 +272,7 @@
         "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
     } }
   </script>
+  <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
   <script type="module" src="js/hero3d.js"></script>
 </body>

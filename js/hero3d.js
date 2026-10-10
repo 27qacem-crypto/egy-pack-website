@@ -312,13 +312,17 @@ function init() {
     camera.position.z = narrow ? 11 : 8;
     camera.updateProjectionMatrix();
     // desktop: roll to the right of the headline; mobile: above the headline
-    baseX = narrow ? 0 : Math.min(2.6, 1.3 + (camera.aspect - 1) * 1.7);
+    // Right-to-left (Arabic) mirrors the composition: text on the right, roll on the left
+    const side = document.documentElement.dir === 'rtl' ? -1 : 1;
+    baseX = narrow ? 0 : side * Math.min(2.6, 1.3 + (camera.aspect - 1) * 1.7);
     baseY = narrow ? 2.5 : 0.0;
     lookX = narrow ? 0 : baseX * 0.35;
     lookY = narrow ? 0 : baseY * 0.6;
     stage.scale.setScalar(narrow ? 0.52 : 0.84);
+    stage.scale.x *= side;
   }
   window.addEventListener('resize', resize);
+  document.addEventListener('egypack:langchange', resize);
   resize();
 
   /* ---------------- Interaction ---------------- */
