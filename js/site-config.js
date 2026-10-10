@@ -9,7 +9,7 @@ window.EGY_CONFIG = {
 
   phone: { display: '01003070334', international: '+201003070334', href: 'tel:+201003070334' },
   whatsapp: { display: '+201065786620', number: '201065786620' },   // wa.me needs digits only
-  email: 'egypack2014@gmail.com',
+  email: 'marketing@egypack.org',
 
   whatsappGreeting: {
     ar: 'مرحبًا، أريد الاستفسار عن منتجات الاسترتش الصناعي لدى إيجي باك.',
