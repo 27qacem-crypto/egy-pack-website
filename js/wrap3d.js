@@ -448,7 +448,9 @@ export function initWrap({ canvas, stage, onUpdate }) {
 
   /* ---------- Loop ---------- */
   let visible = false, running = false, rafId = 0, last = 0, disposed = false;
-  function wake() { if (visible && !running && !disposed) { running = true; last = performance.now(); rafId = requestAnimationFrame(frame); } }
+  // The IntersectionObserver can miss the entry if the scene loads mid-scroll, so double-check
+  const onScreen = () => { const r = stage.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight && r.width > 0; };
+  function wake() { if (!visible) visible = onScreen(); if (visible && !running && !disposed) { running = true; last = performance.now(); rafId = requestAnimationFrame(frame); } }
   function frame(now) {
     const dt = Math.min(0.25, (now - last) / 1000); last = now;  // real time, so slow devices still keep up
     let goal = target;

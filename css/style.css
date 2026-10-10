@@ -425,6 +425,18 @@ p { margin: 0 0 1em; }
 .studio__panel .btn { margin-top: auto; }
 .tool-btn:focus-visible, .studio__selector button:focus-visible, .wrapx .btn:focus-visible, .lang-switch:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
 
+.card { display: flex; flex-direction: column; }
+.card__cta {
+  margin-top: auto; padding: 14px 0 0; align-self: flex-start; display: inline-flex; align-items: center; gap: .45em;
+  background: none; border: 0; font: inherit; font-size: .86rem; font-weight: 600; color: var(--cyan); cursor: pointer;
+}
+.card__cta::after { content: "→"; transition: transform .25s; }
+[dir="rtl"] .card__cta::after { content: "←"; }
+.card__cta:hover::after { transform: translateX(3px); }
+[dir="rtl"] .card__cta:hover::after { transform: translateX(-3px); }
+.card__cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-radius: 4px; }
+.card__specs { margin-bottom: 4px; }
+
 /* ---------- Smart Product Catalog (inside the Product Studio panel) ---------- */
 .studio__selector button { display: flex; flex-direction: column; gap: 2px; }
 .studio__selector button small { font-size: .74rem; color: var(--silver-dark); font-weight: 400; }

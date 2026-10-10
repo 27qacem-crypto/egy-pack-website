@@ -105,8 +105,8 @@
         </div>
         <ul class="hero__stats">
           <li><strong dir="ltr">15+</strong><span data-i18n="company.years">عامًا من الخبرة</span></li>
-          <li><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="hero.stat2">رقم رئيسي 2</span></li>
-          <li><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="hero.stat3">رقم رئيسي 3</span></li>
+          <li><strong dir="ltr">4</strong><span data-i18n="company.products">منتجات</span></li>
+          <li><strong dir="ltr">0.5–40</strong><span data-i18n="company.weights">كجم نطاق الأوزان</span></li>
         </ul>
       </div>
       <a href="#about" class="hero__scroll" aria-label="انتقل للأسفل" data-i18n-attr="aria-label:hero.scroll"><span></span></a>
@@ -139,8 +139,8 @@
         </span>
             <div class="about__metrics">
               <div><strong dir="ltr">15+</strong><span data-i18n="company.years">عامًا من الخبرة</span></div>
-              <div><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="about.metric2">مؤشر 2</span></div>
-              <div><strong class="tbc" data-i18n="common.tbcShort">يُحدَّد</strong><span data-i18n="about.metric3">مؤشر 3</span></div>
+              <div><strong dir="ltr">4</strong><span data-i18n="company.products">منتجات</span></div>
+              <div><strong dir="ltr">0.5–40</strong><span data-i18n="company.weights">كجم نطاق الأوزان</span></div>
             </div>
           </div>
         </div>
@@ -153,40 +153,44 @@
         <div class="section__head reveal">
           <p class="eyebrow"><span class="dot"></span> <span data-i18n="products.eyebrow">مجموعة المنتجات</span></p>
           <h2 class="section__title" data-i18n="products.title">حلول <span class="text-cyan">الاستريتش</span></h2>
-          <p class="section__sub" data-i18n="products.sub">أسماء المنتجات وأوصافها ومواصفاتها يتم تأكيدها من إيجي باك.</p>
+          <p class="section__sub" data-i18n="products.sub">عروض وأوزان البكرات حسب بيانات إيجي باك الرسمية. اختر منتجًا لعرضه ثلاثي الأبعاد وحساب الوزن.</p>
         </div>
         <div class="grid grid--products">
-          <article class="card tilt reveal">
+          <article class="card tilt reveal" data-card="jumbo">
             <div class="card__icon">
-              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="14" cy="24" rx="6" ry="16"/><path d="M14 8h22a6 16 0 0 1 0 32H14"/><ellipse cx="14" cy="24" rx="2" ry="6"/></svg>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="12" cy="24" rx="8" ry="18"/><path d="M12 6h24a8 18 0 0 1 0 36H12"/><ellipse cx="12" cy="24" rx="2" ry="4"/></svg>
             </div>
-            <h3 data-i18n="products.p1">استريتش أوتوماتيك</h3>
-            <p data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
-            <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
+            <h3 data-i18n="cat.jumbo">بكرة جامبو</h3>
+            <p data-i18n="cat.jumbo.desc">بكرة كبيرة الحجم تُنتَج مباشرةً من ماكينة التصنيع الرئيسية.</p>
+            <ul class="card__specs"><li><span data-i18n="spec.width">العرض</span>: <span class="js-width" data-width="jumbo">غير محدد</span></li><li><span data-i18n="spec.weightRange">نطاق الوزن</span>: <span class="js-range" data-range="jumbo">30 – 40 كجم</span></li></ul>
+            <button type="button" class="card__cta" data-show-product="jumbo" data-i18n="cat.view">اعرضه ثلاثي الأبعاد واحسب الوزن</button>
           </article>
-          <article class="card tilt reveal">
+          <article class="card tilt reveal" data-card="r50">
             <div class="card__icon">
-              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="16" cy="24" rx="5" ry="12"/><path d="M16 12h16a5 12 0 0 1 0 24H16"/><path d="M8 20h-4M8 28h-4"/></svg>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="12" cy="24" rx="5" ry="11"/><path d="M12 13h26a5 11 0 0 1 0 22H12"/><ellipse cx="12" cy="24" rx="2" ry="4"/></svg>
             </div>
-            <h3 data-i18n="products.p2">استريتش يدوي</h3>
-            <p data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
-            <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
+            <h3 data-i18n="cat.r50">بكرة استريتش 50 سم</h3>
+            <p data-i18n="cat.r50.desc">بكرة استريتش بعرض 50 سم.</p>
+            <ul class="card__specs"><li><span data-i18n="spec.width">العرض</span>: <span class="js-width" data-width="r50">50 سم</span></li><li><span data-i18n="spec.weightRange">نطاق الوزن</span>: <span class="js-range" data-range="r50">1.5 – 5 كجم</span></li></ul>
+            <button type="button" class="card__cta" data-show-product="r50" data-i18n="cat.view">اعرضه ثلاثي الأبعاد واحسب الوزن</button>
           </article>
-          <article class="card tilt reveal">
+          <article class="card tilt reveal" data-card="r30">
             <div class="card__icon">
-              <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 24h10l4-8 8 16 4-8h10"/><circle cx="24" cy="24" r="20"/></svg>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="12" cy="24" rx="5" ry="11"/><path d="M12 13h16a5 11 0 0 1 0 22H12"/><ellipse cx="12" cy="24" rx="2" ry="4"/></svg>
             </div>
-            <h3 data-i18n="products.p3">استريتش باور</h3>
-            <p data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
-            <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
+            <h3 data-i18n="cat.r30">بكرة استريتش 30 سم</h3>
+            <p data-i18n="cat.r30.desc">بكرة استريتش بعرض 30 سم.</p>
+            <ul class="card__specs"><li><span data-i18n="spec.width">العرض</span>: <span class="js-width" data-width="r30">30 سم</span></li><li><span data-i18n="spec.weightRange">نطاق الوزن</span>: <span class="js-range" data-range="r30">1 – 2 كجم</span></li></ul>
+            <button type="button" class="card__cta" data-show-product="r30" data-i18n="cat.view">اعرضه ثلاثي الأبعاد واحسب الوزن</button>
           </article>
-          <article class="card tilt reveal">
+          <article class="card tilt reveal" data-card="r10">
             <div class="card__icon">
-              <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="8" width="14" height="14" rx="3"/><rect x="26" y="8" width="14" height="14" rx="3"/><rect x="8" y="26" width="14" height="14" rx="3"/><rect x="26" y="26" width="14" height="14" rx="3"/></svg>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="12" cy="24" rx="5" ry="11"/><path d="M12 13h6a5 11 0 0 1 0 22H12"/><ellipse cx="12" cy="24" rx="2" ry="4"/></svg>
             </div>
-            <h3 data-i18n="products.p4">استريتش ملون ومخصص</h3>
-            <p data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
-            <ul class="card__specs"><li data-i18n="products.width">العرض: يُحدَّد</li><li data-i18n="products.thickness">السُمك: يُحدَّد</li><li data-i18n="products.core">الكور: يُحدَّد</li></ul>
+            <h3 data-i18n="cat.r10">بكرة استريتش 10 سم</h3>
+            <p data-i18n="cat.r10.desc">بكرة استريتش بعرض 10 سم، بوزن ثابت.</p>
+            <ul class="card__specs"><li><span data-i18n="spec.width">العرض</span>: <span class="js-width" data-width="r10">10 سم</span></li><li><span data-i18n="spec.weightRange">نطاق الوزن</span>: <span class="js-range" data-range="r10">0.5 كجم (ثابت)</span></li></ul>
+            <button type="button" class="card__cta" data-show-product="r10" data-i18n="cat.view">اعرضه ثلاثي الأبعاد واحسب الوزن</button>
           </article>
         </div>
 
@@ -412,10 +416,11 @@
           <div class="field">
             <label for="cProduct" data-i18n="form.product">المنتج</label>
             <select id="cProduct" name="product">
-              <option value="machine" data-i18n="products.p1">استريتش أوتوماتيك</option>
-              <option value="hand" data-i18n="products.p2">استريتش يدوي</option>
-              <option value="pre-stretched" data-i18n="products.p3">استريتش باور</option>
-              <option value="colored-custom" data-i18n="products.p4">استريتش ملون ومخصص</option>
+              <!-- options are generated from js/product-data.js; these are the no-JavaScript fallback -->
+              <option value="jumbo">بكرة جامبو</option>
+              <option value="r50">بكرة استريتش 50 سم</option>
+              <option value="r30">بكرة استريتش 30 سم</option>
+              <option value="r10">بكرة استريتش 10 سم</option>
             </select>
           </div>
           <div class="field">

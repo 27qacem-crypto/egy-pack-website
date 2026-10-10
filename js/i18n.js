@@ -15,6 +15,9 @@
     'company.name': 'EGY PACK',
     'company.exp': 'Industrial Stretch Film Manufacturing, Cutting &amp; Trading — more than 15 years of experience.',
     'company.years': 'Years of experience',
+    'company.products': 'Products',
+    'company.weights': 'kg weight range',
+    'cat.view': 'View in 3D &amp; calculate weight',
     'wa.label': 'Chat with us on WhatsApp',
 
     'loader.label': 'Loading EGY PACK',
@@ -29,7 +32,6 @@
     'nav.industries': 'Industries',
     'nav.quote': 'Get a Quote',
 
-    'common.tbcShort': 'TBC',
 
     'hero.eyebrow': 'Industrial Stretch Film Manufacturing',
     'hero.title': 'Engineered to <span class="text-cyan">Hold</span><br />\n          the World Together',
@@ -37,9 +39,6 @@
     'hero.lead': 'EGY PACK: industrial stretch film manufacturing, cutting &amp; trading,\n          with more than 15 years of experience.',
     'hero.ctaProducts': 'Explore Products',
     'hero.ctaQuote': 'Request a Quote',
-    'hero.stat1': 'Key figure 1',
-    'hero.stat2': 'Key figure 2',
-    'hero.stat3': 'Key figure 3',
     'hero.scroll': 'Scroll down',
 
     'about.eyebrow': 'About EGY PACK',
@@ -49,21 +48,10 @@
     'about.cap1': '[Capability 1 — to be confirmed]',
     'about.cap2': '[Capability 2 — to be confirmed]',
     'about.cap3': '[Capability 3 — to be confirmed]',
-    'about.metric1': 'Metric 1',
-    'about.metric2': 'Metric 2',
-    'about.metric3': 'Metric 3',
 
     'products.eyebrow': 'Product Range',
     'products.title': 'Stretch Film <span class="text-cyan">Solutions</span>',
-    'products.sub': 'Product names, descriptions and specifications to be confirmed by EGY PACK.',
-    'products.p1': 'Automatic Stretch Film',
-    'products.p2': 'Hand Stretch Film',
-    'products.p3': 'Power Stretch Film',
-    'products.p4': 'Colored &amp; Custom Film',
-    'products.desc': '[Product description — to be provided]',
-    'products.width': 'Width: TBC',
-    'products.thickness': 'Thickness: TBC',
-    'products.core': 'Core: TBC',
+    'products.sub': 'Roll widths and weights per EGY PACK official data. Choose a product to view it in 3D and calculate the weight.',
 
     'studio.eyebrow': 'Smart Product Catalog',
     'studio.title': 'Explore the Roll from <span class="text-cyan">Every Angle</span>',

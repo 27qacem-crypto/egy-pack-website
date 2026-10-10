@@ -76,7 +76,13 @@ window.addEventListener('pagehide', () => cleanups.forEach(fn => { try { fn(); }
     descEl.innerHTML = tr(p.descKey, descEl.innerHTML);
     document.getElementById('specWidth').textContent = p.widthCm ? `${p.widthCm} ${tr('unit.cm', 'cm')}` : tr('spec.notSpecified', 'Not specified');
     document.getElementById('specWeight').textContent = rangeText(p);
-    root.querySelectorAll('.js-range').forEach(el => { el.textContent = rangeText(findProduct(el.getAttribute('data-range'))); });
+    // Product cards + selector labels, all from the shared product data
+    document.querySelectorAll('.js-range').forEach(el => { el.textContent = rangeText(findProduct(el.getAttribute('data-range'))); });
+    document.querySelectorAll('.js-width').forEach(el => {
+      const w = findProduct(el.getAttribute('data-width')).widthCm;
+      el.textContent = w ? `${w} ${tr('unit.cm', 'cm')}` : tr('spec.notSpecified', 'Not specified');
+    });
+    syncContactProducts();
 
     const fixed = isFixedWeight(p);
     weightIn.readOnly = fixed;
@@ -177,6 +183,31 @@ window.addEventListener('pagehide', () => cleanups.forEach(fn => { try { fn(); }
       if (fwd.includes(e.key)) n = (i + 1) % radios.length;
       if (back.includes(e.key)) n = (i - 1 + radios.length) % radios.length;
       if (n !== null) { e.preventDefault(); select(radios[n].getAttribute('data-product'), { focus: true }); }
+    });
+  });
+
+  // Contact form product list = the same four products (built from product-data.js)
+  function syncContactProducts() {
+    const sel = document.getElementById('cProduct');
+    if (!sel) return;
+    const current = sel.value;
+    const ids = PRODUCTS.map(p => p.id);
+    if (Array.from(sel.options).map(o => o.value).join() !== ids.join()) {
+      sel.innerHTML = '';
+      PRODUCTS.forEach(p => sel.add(new Option('', p.id)));
+    }
+    Array.from(sel.options).forEach(o => { o.textContent = tr(findProduct(o.value).nameKey, o.value); });
+    if (ids.includes(current)) sel.value = current;
+  }
+
+  // Product cards open the product in the 3D catalog
+  document.querySelectorAll('[data-show-product]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      select(btn.getAttribute('data-show-product'));
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.getElementById('studio').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      const radio = root.querySelector(`[data-product="${selected}"]`);
+      if (radio) radio.focus({ preventScroll: true });
     });
   });
 

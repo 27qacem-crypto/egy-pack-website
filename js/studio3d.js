@@ -215,7 +215,9 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
 
   /* ---------- Loop: only while visible, only when something changes ---------- */
   let visible = false, running = false, dirty = true, rafId = 0, disposed = false;
-  function wake() { dirty = true; if (visible && !running && !disposed) { running = true; rafId = requestAnimationFrame(frame); } }
+  // The IntersectionObserver can miss the entry if the scene loads mid-scroll, so double-check
+  const onScreen = () => { const r = viewport.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight && r.width > 0; };
+  function wake() { dirty = true; if (!visible) visible = onScreen(); if (visible && !running && !disposed) { running = true; rafId = requestAnimationFrame(frame); } }
   function frame(now) {
     let active = false;
     for (let i = tweens.length - 1; i >= 0; i--) {
@@ -241,6 +243,8 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
   io.observe(viewport);
   const onVis = () => { if (!document.hidden) wake(); };
   document.addEventListener('visibilitychange', onVis);
+  const onScroll = () => { if (!visible) wake(); };   // backup for a missed IntersectionObserver entry
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   resize();               // size first, so the first product is framed for the real aspect
   setProduct(productId);
@@ -253,6 +257,7 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
     clearTimeout(idleTimer);
     io.disconnect(); ro.disconnect();
     document.removeEventListener('visibilitychange', onVis);
+    window.removeEventListener('scroll', onScroll);
     controls.dispose();
     disposeObject(scene);
     if (scene.background) scene.background.dispose();
