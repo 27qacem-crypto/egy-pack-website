@@ -108,7 +108,7 @@
     'tech.title': 'How We <span class="text-silver">Manufacture</span>',
     'tech.sub': 'Process steps to be confirmed by EGY PACK.',
     'tech.s1': 'Raw Materials',
-    'tech.s2': 'Extrusion',
+    'tech.s2': 'Manufacturing',
     'tech.s3': 'Quality Control',
     'tech.s4': 'Winding &amp; Packing',
     'tech.desc': '[Description — to be provided]',
