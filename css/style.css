@@ -22,6 +22,7 @@
   --font: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Orbitron", "Sora", sans-serif;
   --font-ar: "Cairo", "Segoe UI", sans-serif;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -208,6 +209,8 @@ p { margin: 0 0 1em; }
 .field select option { background: var(--navy-900); }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0,229,255,.15); }
 .field.has-error input, .field.has-error textarea { border-color: #ff5a7a; }
+.tbc { color: var(--silver-dark) !important; letter-spacing: .08em; }
+.contact__details { color: var(--silver-dark); font-size: .9rem; }
 .form__status { margin: 0; min-height: 1.4em; font-size: .9rem; color: var(--cyan); }
 .form__status.is-error { color: #ff7a93; }
 

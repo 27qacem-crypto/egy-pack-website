@@ -313,7 +313,7 @@ function init() {
     camera.updateProjectionMatrix();
     // desktop: roll to the right of the headline; mobile: above the headline
     baseX = narrow ? 0 : Math.min(2.6, 1.3 + (camera.aspect - 1) * 1.7);
-    baseY = narrow ? 2.3 : 0.0;
+    baseY = narrow ? 2.5 : 0.0;
     lookX = narrow ? 0 : baseX * 0.35;
     lookY = narrow ? 0 : baseY * 0.6;
     stage.scale.setScalar(narrow ? 0.52 : 0.84);

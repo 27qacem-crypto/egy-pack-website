@@ -146,7 +146,7 @@
       });
       status.classList.toggle('is-error', !ok);
       if (!ok) { status.textContent = 'Please complete all required fields with a valid email.'; return; }
-      status.textContent = 'Thank you! Your request has been received — our team will contact you shortly.';
+      status.textContent = 'Preview only: this form is not connected yet, so nothing was sent.';
       form.reset();
     });
   }
