@@ -138,7 +138,7 @@
     'ind.c3.title': 'Shipping &amp; Logistics',
     'ind.c3.alt2': 'شركات الشحن والنقل',
     'ind.c3.desc': 'Wrapping solutions that help secure and protect goods during transport and storage.',
-    'ind.c3.alt': 'Illustrative image: loading dock with a truck and wrapped pallets',
+    'ind.c3.alt': 'Illustrative image: forklift loading a wrapped carton pallet into a truck',
 
     'mfg.eyebrow': 'Manufacturing Process',
     'mfg.title': 'From Raw Materials <span class="text-cyan">to Finished Products</span>',
