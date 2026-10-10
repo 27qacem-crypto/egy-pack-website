@@ -193,7 +193,7 @@
         <!-- ============ 3D PRODUCT STUDIO ============ -->
         <div class="studio" id="studio">
           <div class="studio__head reveal">
-            <p class="eyebrow"><span class="dot"></span> <span data-i18n="studio.eyebrow">استوديو المنتج ثلاثي الأبعاد</span></p>
+            <p class="eyebrow"><span class="dot"></span> <span data-i18n="studio.eyebrow">كتالوج المنتجات الذكي</span></p>
             <h3 class="studio__title" data-i18n="studio.title">استكشف الرول من <span class="text-cyan">كل زاوية</span></h3>
           </div>
           <div class="studio__layout">
@@ -212,7 +212,7 @@
                   <ellipse cx="100" cy="40" rx="16" ry="4.5" fill="#9a7246"/>
                   <ellipse cx="100" cy="40" rx="12" ry="3.2" fill="#3b2a18"/>
                 </svg>
-                <p data-i18n="studio.fallback">العرض ثلاثي الأبعاد غير مدعوم على هذا الجهاز. ما زال بإمكانك اختيار المنتج ومراجعة مواصفاته.</p>
+                <p data-i18n="studio.fallback">العرض ثلاثي الأبعاد غير مدعوم على هذا الجهاز. ما زال بإمكانك اختيار المنتج وحساب الوزن وطلب عرض السعر.</p>
               </div>
               <span class="studio__badge" data-i18n="studio.illustrative">نموذج توضيحي</span>
               <p class="studio__hint" id="studioHint" data-i18n="studio.hint">اسحب للتدوير · استخدم العجلة أو إصبعين للتكبير</p>
@@ -236,23 +236,51 @@
             <aside class="studio__panel glass-card" aria-labelledby="studioName">
               <p class="studio__label" id="studioChooseLabel" data-i18n="studio.choose">اختر المنتج</p>
               <div class="studio__selector" role="radiogroup" aria-labelledby="studioChooseLabel">
-                <button type="button" role="radio" aria-checked="true" data-product="machine" data-i18n="products.p1">استريتش أوتوماتيك</button>
-                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="hand" data-i18n="products.p2">استريتش يدوي</button>
-                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="pre-stretched" data-i18n="products.p3">استريتش باور</button>
-                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="colored-custom" data-i18n="products.p4">استريتش ملون ومخصص</button>
+                <button type="button" role="radio" aria-checked="true" data-product="jumbo"><span data-i18n="cat.jumbo">بكرة جامبو</span><small class="js-range" data-range="jumbo"></small></button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="r50"><span data-i18n="cat.r50">بكرة استريتش 50 سم</span><small class="js-range" data-range="r50"></small></button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="r30"><span data-i18n="cat.r30">بكرة استريتش 30 سم</span><small class="js-range" data-range="r30"></small></button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="r10"><span data-i18n="cat.r10">بكرة استريتش 10 سم</span><small class="js-range" data-range="r10"></small></button>
               </div>
-              <h4 class="studio__name" id="studioName" data-i18n="products.p1">استريتش أوتوماتيك</h4>
-              <p class="studio__desc" data-i18n="products.desc">[وصف المنتج — يتم توفيره]</p>
+              <h4 class="studio__name" id="studioName" data-i18n="cat.jumbo">بكرة جامبو</h4>
+              <p class="studio__desc" id="studioDesc" data-i18n="cat.jumbo.desc">بكرة كبيرة الحجم تُنتَج مباشرةً من ماكينة التصنيع الرئيسية.</p>
               <dl class="studio__specs">
-                <div><dt data-i18n="spec.width">العرض</dt><dd data-spec="width">يُحدَّد</dd></div>
-                <div><dt data-i18n="spec.thickness">السُمك</dt><dd data-spec="thickness">يُحدَّد</dd></div>
-                <div><dt data-i18n="spec.length">طول الرول</dt><dd data-spec="length">يُحدَّد</dd></div>
-                <div><dt data-i18n="spec.weight">وزن الرول</dt><dd data-spec="weight">يُحدَّد</dd></div>
-                <div><dt data-i18n="spec.core">قطر الكور</dt><dd data-spec="core">يُحدَّد</dd></div>
-                <div><dt data-i18n="spec.color">اللون</dt><dd data-spec="color">يُحدَّد</dd></div>
+                <div><dt data-i18n="spec.width">العرض</dt><dd id="specWidth">غير محدد</dd></div>
+                <div><dt data-i18n="spec.weightRange">نطاق الوزن</dt><dd id="specWeight">30 – 40 كجم</dd></div>
               </dl>
-              <p class="studio__note" data-i18n="studio.note">المواصفات قيد التأكيد من إيجي باك، والنموذج ثلاثي الأبعاد للتوضيح فقط.</p>
-              <button type="button" class="btn btn--primary btn--block" id="studioQuote" data-i18n="studio.quote">اطلب عرض سعر لهذا المنتج</button>
+
+              <!-- Weight calculator + WhatsApp quotation -->
+              <form class="calc" id="calcForm" novalidate>
+                <p class="calc__title" data-i18n="calc.title">حاسبة الوزن وطلب عرض السعر</p>
+                <div class="calc__row">
+                  <div class="field">
+                    <label for="calcWeight" data-i18n="calc.weight">الوزن المطلوب للبكرة (كجم)</label>
+                    <input id="calcWeight" name="weight" type="text" inputmode="decimal" dir="ltr" autocomplete="off" required aria-describedby="calcWeightHelp" />
+                    <p class="calc__help" id="calcWeightHelp"></p>
+                  </div>
+                  <div class="field">
+                    <label for="calcQty" data-i18n="calc.qty">عدد البكرات</label>
+                    <input id="calcQty" name="rolls" type="text" inputmode="numeric" dir="ltr" autocomplete="off" required />
+                  </div>
+                </div>
+                <div class="calc__result" aria-live="polite">
+                  <span data-i18n="calc.total">الوزن الإجمالي التقديري</span>
+                  <strong id="calcTotal" dir="ltr">—</strong>
+                </div>
+                <p class="calc__note" data-i18n="calc.note">الوزن المُدخل وزن مطلوب، وليس تأكيدًا لتوفره في المخزون. يفترض الحساب أن الوزن المُدخل هو الوزن الإجمالي للبكرة الواحدة.</p>
+                <div class="calc__row">
+                  <div class="field">
+                    <label for="calcName" data-i18n="calc.name">الاسم (اختياري)</label>
+                    <input id="calcName" name="name" type="text" autocomplete="name" dir="auto" />
+                  </div>
+                  <div class="field">
+                    <label for="calcPhone" data-i18n="calc.phone">رقم الهاتف (اختياري)</label>
+                    <input id="calcPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" />
+                  </div>
+                </div>
+                <button type="submit" class="btn btn--primary btn--block" id="studioQuote" data-i18n="calc.quote">اطلب عرض سعر عبر واتساب</button>
+                <p class="form__status" id="calcStatus" role="status"></p>
+              </form>
+              <p class="studio__note" data-i18n="studio.note">النماذج ثلاثية الأبعاد توضيحية. عرض بكرة الجامبو غير محدد بعد.</p>
             </aside>
           </div>
         </div>

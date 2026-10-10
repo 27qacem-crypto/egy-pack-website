@@ -216,7 +216,8 @@
       entries.forEach(function (e) { if (e.isIntersecting) busy.add(e.target); else busy.delete(e.target); });
       update();
     }, { threshold: 0.15 });
-    ['studioViewport', 'wrapStage'].forEach(function (id) { var el = document.getElementById(id); if (el) tuckObs.observe(el); });
+    // …and while a form with its own WhatsApp button is on screen
+    ['studioViewport', 'wrapStage', 'calcForm', 'contactForm'].forEach(function (id) { var el = document.getElementById(id); if (el) tuckObs.observe(el); });
     if (small.addEventListener) small.addEventListener('change', update);
   }
 

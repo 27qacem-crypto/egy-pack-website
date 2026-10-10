@@ -425,6 +425,26 @@ p { margin: 0 0 1em; }
 .studio__panel .btn { margin-top: auto; }
 .tool-btn:focus-visible, .studio__selector button:focus-visible, .wrapx .btn:focus-visible, .lang-switch:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
 
+/* ---------- Smart Product Catalog (inside the Product Studio panel) ---------- */
+.studio__selector button { display: flex; flex-direction: column; gap: 2px; }
+.studio__selector button small { font-size: .74rem; color: var(--silver-dark); font-weight: 400; }
+.studio__selector button[aria-checked="true"] small { color: var(--cyan); }
+.calc { display: grid; gap: 12px; padding-top: 16px; border-top: 1px solid var(--glass-border); }
+.calc__title { margin: 0; font-weight: 700; color: var(--white); }
+.calc__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.calc__help { margin: 2px 0 0; font-size: .74rem; color: var(--silver-dark); }
+.calc .field input.is-fixed { opacity: .75; cursor: default; }
+.calc__result { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 12px; background: var(--cyan-soft); border: 1px solid rgba(0,229,255,.4); }
+.calc__result span { font-size: .85rem; color: var(--silver); }
+.calc__result strong { font-family: var(--font-display); font-size: 1.3rem; color: var(--cyan); white-space: nowrap; }
+.calc__note { margin: 0; font-size: .76rem; color: var(--silver-dark); }
+.field.has-error input { border-color: #ff5a7a; }
+@media (min-width: 861px) {
+  .studio__layout { align-items: start; }
+  .studio__viewport { position: sticky; top: calc(var(--nav-h) + 16px); }   /* the 3D view stays in sight while the panel scrolls */
+}
+@media (max-width: 420px) { .calc__row { grid-template-columns: 1fr; } }
+
 /* =========================================================
    Experience the Protection (scroll-driven pallet wrapping)
    ========================================================= */

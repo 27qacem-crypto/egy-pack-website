@@ -1,41 +1,51 @@
-/* EGY PACK — Product Studio data.
+/* EGY PACK — Smart Product Catalog data (official product information).
  *
- * EDITABLE PLACEHOLDERS: no product specification has been confirmed yet.
- * Every spec value is `null`, which the page shows as "يُحدَّد" / "TBC".
- * Replace `null` with the confirmed value as text, in both languages, e.g.
- *   width: { ar: '500 مم', en: '500 mm' }
+ * Only verified data is listed here: product name, roll width (when known) and
+ * weight range. Thickness, length, core weight, density, stretch %, colors and
+ * prices are intentionally absent; add them only once officially confirmed.
  *
- * `visual` only controls how the illustrative 3D model looks in the studio.
- * It is not a product dimension and is never shown as a specification.
+ * weight: { min, max } in kg. When min === max the product has a fixed weight.
+ * widthCm: null means "not specified" (shown as such, never guessed).
+ *
+ * `visual` only shapes the illustrative 3D model. Heights follow the known widths
+ * (0.048 scene units per cm); diameters are rough illustrations. The jumbo roll
+ * has no confirmed width, so its height is illustrative too.
  */
+const U = 0.048;   // scene units per cm
+const CORE = 0.18; // illustrative core radius
+
 export const PRODUCTS = [
   {
-    id: 'machine',
-    nameKey: 'products.p1',
-    specs: { width: null, thickness: null, length: null, weight: null, core: null, color: null },
-    visual: { radius: 1.0, height: 2.4, core: 0.34, tint: 0xc4d9ee, opacity: 0.8 }
+    id: 'jumbo',
+    nameKey: 'cat.jumbo', descKey: 'cat.jumbo.desc',
+    widthCm: null,
+    weight: { min: 30, max: 40 },
+    visual: { radius: 0.77, height: 50 * U, core: CORE, tint: 0xc4d9ee, opacity: 0.8, illustrativeWidth: true }
   },
   {
-    id: 'hand',
-    nameKey: 'products.p2',
-    specs: { width: null, thickness: null, length: null, weight: null, core: null, color: null },
-    visual: { radius: 0.78, height: 2.2, core: 0.27, tint: 0xc9dcef, opacity: 0.8 }
+    id: 'r50',
+    nameKey: 'cat.r50', descKey: 'cat.r50.desc',
+    widthCm: 50,
+    weight: { min: 1.5, max: 5 },
+    visual: { radius: 0.3, height: 50 * U, core: CORE, tint: 0xc9dcef, opacity: 0.8 }
   },
   {
-    id: 'pre-stretched',
-    nameKey: 'products.p3',
-    specs: { width: null, thickness: null, length: null, weight: null, core: null, color: null },
-    visual: { radius: 0.7, height: 2.2, core: 0.27, tint: 0xd6e6f5, opacity: 0.88 }
+    id: 'r30',
+    nameKey: 'cat.r30', descKey: 'cat.r30.desc',
+    widthCm: 30,
+    weight: { min: 1, max: 2 },
+    visual: { radius: 0.28, height: 30 * U, core: CORE, tint: 0xd0e2f3, opacity: 0.82 }
   },
   {
-    id: 'colored-custom',
-    nameKey: 'products.p4',
-    specs: { width: null, thickness: null, length: null, weight: null, core: null, color: null },
-    visual: { radius: 0.9, height: 2.3, core: 0.3, tint: 0x1f3a7a, opacity: 0.35 }
+    id: 'r10',
+    nameKey: 'cat.r10', descKey: 'cat.r10.desc',
+    widthCm: 10,
+    weight: { min: 0.5, max: 0.5 },
+    visual: { radius: 0.28, height: 10 * U, core: CORE, tint: 0xd6e6f5, opacity: 0.85 }
   }
 ];
 
-export const SPEC_FIELDS = ['width', 'thickness', 'length', 'weight', 'core', 'color'];
+export const isFixedWeight = p => p.weight.min === p.weight.max;
 
 export function findProduct(id) {
   return PRODUCTS.find(p => p.id === id) || PRODUCTS[0];

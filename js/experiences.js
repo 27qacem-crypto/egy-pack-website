@@ -1,7 +1,7 @@
 /* EGY PACK — Product Studio + "Experience the Protection" controller.
    Wires the bilingual UI immediately (it works without WebGL), detects WebGL,
    and lazy-loads each 3D scene only when its section approaches the viewport. */
-import { PRODUCTS, SPEC_FIELDS, findProduct } from './product-data.js';
+import { PRODUCTS, findProduct, isFixedWeight } from './product-data.js';
 
 const tr = (key, fallback) => (window.EGY_I18N ? window.EGY_I18N.t(key) : fallback);
 const lang = () => (window.EGY_I18N ? window.EGY_I18N.lang() : document.documentElement.lang || 'ar');
@@ -38,22 +38,118 @@ window.addEventListener('pagehide', () => cleanups.forEach(fn => { try { fn(); }
   const fallback = document.getElementById('studioFallback');
   const hint = document.getElementById('studioHint');
   const nameEl = document.getElementById('studioName');
+  const descEl = document.getElementById('studioDesc');
   const radios = Array.from(root.querySelectorAll('[data-product]'));
-  const specEls = Array.from(root.querySelectorAll('[data-spec]'));
+  const form = document.getElementById('calcForm');
+  const weightIn = document.getElementById('calcWeight');
+  const qtyIn = document.getElementById('calcQty');
+  const nameIn = document.getElementById('calcName');
+  const phoneIn = document.getElementById('calcPhone');
+  const weightHelp = document.getElementById('calcWeightHelp');
+  const totalEl = document.getElementById('calcTotal');
+  const status = document.getElementById('calcStatus');
   let selected = PRODUCTS[0].id;
   let api = null;
 
-  function renderSpecs() {
-    const p = findProduct(selected);
-    specEls.forEach(dd => {
-      const v = p.specs[dd.getAttribute('data-spec')];
-      const text = v ? (v[lang()] || v.ar || v.en) : tr('common.tbcShort', 'TBC');
-      dd.textContent = text;
-      dd.classList.toggle('tbc', !v);
-    });
+  /* ---------- Formatting & parsing (accepts Arabic-Indic digits and ٫ or , decimals) ---------- */
+  const fmt = n => String(Math.round(n * 100) / 100);
+  const fill = (key, vars) => tr(key, key).replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+  const toAscii = v => v
+    .replace(/[٠-٩]/g, d => String(d.charCodeAt(0) - 0x0660))
+    .replace(/[۰-۹]/g, d => String(d.charCodeAt(0) - 0x06F0))
+    .replace(/[٫,]/g, '.').trim();
+  const parseNum = v => { const t = toAscii(v); return /^\d+(\.\d+)?$/.test(t) ? parseFloat(t) : NaN; };
+  const parseInt10 = v => { const t = toAscii(v); return /^\d+$/.test(t) ? parseInt(t, 10) : NaN; };
+  const validPhone = v => /^\+?\d{8,15}$/.test(toAscii(v).replace(/[\s\-().]/g, ''));
+
+  function rangeText(p) {
+    const kg = tr('unit.kg', 'kg');
+    return isFixedWeight(p) ? `${fmt(p.weight.min)} ${kg} ${tr('calc.fixedTag', '(fixed)')}` : `${fmt(p.weight.min)} – ${fmt(p.weight.max)} ${kg}`;
   }
 
+  /* ---------- Rendering (re-run on language change; the 3D view is left alone) ---------- */
+  function renderProduct() {
+    const p = findProduct(selected);
+    nameEl.setAttribute('data-i18n', p.nameKey);   // i18n keeps these in sync on language switch
+    nameEl.innerHTML = tr(p.nameKey, nameEl.innerHTML);
+    descEl.setAttribute('data-i18n', p.descKey);
+    descEl.innerHTML = tr(p.descKey, descEl.innerHTML);
+    document.getElementById('specWidth').textContent = p.widthCm ? `${p.widthCm} ${tr('unit.cm', 'cm')}` : tr('spec.notSpecified', 'Not specified');
+    document.getElementById('specWeight').textContent = rangeText(p);
+    root.querySelectorAll('.js-range').forEach(el => { el.textContent = rangeText(findProduct(el.getAttribute('data-range'))); });
+
+    const fixed = isFixedWeight(p);
+    weightIn.readOnly = fixed;
+    weightIn.classList.toggle('is-fixed', fixed);
+    if (fixed) weightIn.value = fmt(p.weight.min);
+    weightIn.placeholder = fixed ? '' : `${fmt(p.weight.min)} – ${fmt(p.weight.max)}`;
+    weightHelp.textContent = fixed ? fill('calc.fixed', { w: fmt(p.weight.min) }) : fill('calc.range', { min: fmt(p.weight.min), max: fmt(p.weight.max) });
+    qtyIn.placeholder = '1';
+    updateTotal();
+  }
+
+  /* ---------- Validation + live total ---------- */
+  function readInputs() {
+    const p = findProduct(selected);
+    const w = parseNum(weightIn.value);
+    const q = parseInt10(qtyIn.value);
+    return {
+      p, w, q,
+      weightOk: !isNaN(w) && w >= p.weight.min && w <= p.weight.max,
+      qtyOk: !isNaN(q) && q >= 1 && q <= 1000000,
+      phoneOk: phoneIn.value.trim() === '' || validPhone(phoneIn.value)
+    };
+  }
+  function updateTotal() {
+    const r = readInputs();
+    totalEl.textContent = r.weightOk && r.qtyOk ? `${fmt(r.w * r.q)} ${tr('unit.kg', 'kg')}` : '—';
+    return r;
+  }
+  [weightIn, qtyIn].forEach(el => el.addEventListener('input', () => {
+    el.parentElement.classList.remove('has-error');
+    updateTotal();
+  }));
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const r = updateTotal();
+    weightIn.parentElement.classList.toggle('has-error', !r.weightOk);
+    qtyIn.parentElement.classList.toggle('has-error', !r.qtyOk);
+    phoneIn.parentElement.classList.toggle('has-error', !r.phoneOk);
+    const errors = [];
+    if (!r.weightOk) errors.push(fill('calc.errWeight', { min: fmt(r.p.weight.min), max: fmt(r.p.weight.max) }));
+    if (!r.qtyOk) errors.push(tr('calc.errQty', 'Enter a whole number of rolls (1 or more).'));
+    if (!r.phoneOk) errors.push(tr('calc.errPhone', 'The phone number is not valid.'));
+    status.classList.toggle('is-error', errors.length > 0);
+    if (errors.length) { status.textContent = errors.join(' '); return; }
+
+    const kg = tr('unit.kg', 'kg');
+    const lines = [tr('wa.c.title', 'Quotation request — EGY PACK'), ''];
+    lines.push(`${tr('wa.c.product', 'Product')}: ${tr(r.p.nameKey, r.p.id)}`);
+    if (r.p.widthCm) lines.push(`${tr('wa.c.width', 'Roll width')}: ${r.p.widthCm} ${tr('unit.cm', 'cm')}`);
+    lines.push(`${tr('wa.c.weight', 'Requested weight per roll')}: ${fmt(r.w)} ${kg} ${tr('wa.c.requested', '')}`.trim());
+    lines.push(`${tr('wa.c.rolls', 'Number of rolls')}: ${r.q}`);
+    lines.push(`${tr('wa.c.total', 'Estimated total weight')}: ${fmt(r.w * r.q)} ${kg}`);
+    if (nameIn.value.trim()) lines.push(`${tr('wa.c.name', 'Name')}: ${nameIn.value.trim()}`);
+    if (phoneIn.value.trim()) lines.push(`${tr('wa.c.phone', 'Phone')}: ${toAscii(phoneIn.value)}`);
+
+    const cfg = window.EGY_CONFIG;
+    const url = cfg ? cfg.whatsappLink(lines.join('\n')) : 'https://wa.me/201065786620?text=' + encodeURIComponent(lines.join('\n'));
+    form.setAttribute('data-wa-url', url);
+    // Opens the official chat with the message ready; the customer still presses Send in WhatsApp.
+    const win = window.open(url, '_blank');
+    if (win) { try { win.opener = null; } catch (err) { /* cross-origin */ } }
+    status.textContent = '';
+    const msg = document.createElement('span');
+    msg.textContent = tr('form.opened', 'WhatsApp has opened with your request. To send it, press Send inside WhatsApp.') + ' ' + tr('form.fallback', 'If WhatsApp did not open, use this link:') + ' ';
+    const a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = tr('form.fallbackLink', 'Open WhatsApp with your request');
+    status.append(msg, a);
+  });
+
   function select(id, { focus = false } = {}) {
+    const prev = selected;
     selected = findProduct(id).id;
     radios.forEach(btn => {
       const on = btn.getAttribute('data-product') === selected;
@@ -61,10 +157,13 @@ window.addEventListener('pagehide', () => cleanups.forEach(fn => { try { fn(); }
       btn.tabIndex = on ? 0 : -1;
       if (on && focus) btn.focus();
     });
-    const key = findProduct(selected).nameKey;
-    nameEl.setAttribute('data-i18n', key);   // keeps the name in sync on language switch
-    nameEl.innerHTML = tr(key, nameEl.innerHTML);
-    renderSpecs();
+    if (prev !== selected) {
+      // a weight entered for another product is not carried over
+      if (!isFixedWeight(findProduct(selected))) weightIn.value = '';
+      weightIn.parentElement.classList.remove('has-error');
+      status.textContent = ''; status.classList.remove('is-error');
+    }
+    renderProduct();
     if (api) api.setProduct(selected);
   }
 
@@ -94,18 +193,11 @@ window.addEventListener('pagehide', () => cleanups.forEach(fn => { try { fn(); }
     });
   });
 
-  // Request a quote for the selected product: pre-select it in the contact form
-  document.getElementById('studioQuote').addEventListener('click', () => {
-    const select = document.getElementById('cProduct');
-    if (select) select.value = selected;
-    const contact = document.getElementById('contact');
-    if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    const name = document.getElementById('cName');
-    if (name) setTimeout(() => name.focus({ preventScroll: true }), 700);
+  document.addEventListener('egypack:langchange', () => {
+    status.textContent = ''; status.classList.remove('is-error');   // never leave a message in the old language
+    renderProduct();
   });
-
-  document.addEventListener('egypack:langchange', renderSpecs);
-  renderSpecs();
+  renderProduct();
 
   function showFallback() {
     loading.hidden = true;

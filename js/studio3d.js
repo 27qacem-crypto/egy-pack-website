@@ -10,9 +10,8 @@ import {
 } from './three-utils.js';
 import { findProduct } from './product-data.js';
 
-const HOME_POS = new THREE.Vector3(4.2, 2.7, 5.1);
-const HOME_TARGET = new THREE.Vector3(0, 1.2, 0);
-const MIN_DIST = 3.6, MAX_DIST = 11;
+// Camera viewing direction; the distance is fitted to each product's size
+const HOME_DIR = new THREE.Vector3(4.2, 2.7, 5.1).normalize();
 const PLATFORM_TOP = 0.0;
 
 export function initStudio({ canvas, viewport, productId, onInteract }) {
@@ -29,7 +28,7 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
   pmrem.dispose();
 
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 60);
-  camera.position.copy(HOME_POS);
+  const home = { pos: new THREE.Vector3(), target: new THREE.Vector3(), min: 3.6, max: 11 };
 
   /* ---------- Lighting (studio three-point + soft shadow) ---------- */
   scene.add(new THREE.HemisphereLight(0x9fc4ff, 0x030820, 0.35));
@@ -82,12 +81,11 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
 
   /* ---------- Controls ---------- */
   const controls = new OrbitControls(camera, canvas);
-  controls.target.copy(HOME_TARGET);
+
   controls.enableDamping = true;
   controls.dampingFactor = 0.08;
   controls.enablePan = false;
-  controls.minDistance = MIN_DIST;
-  controls.maxDistance = MAX_DIST;
+
   controls.minPolarAngle = 0.15;
   controls.maxPolarAngle = 1.48;   // never look from under the platform
   controls.rotateSpeed = 0.8;
@@ -119,6 +117,28 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
     roll.group.position.y = PLATFORM_TOP + roll.height / 2 + 0.01;
   }
 
+  // Fit the camera to a product: rolls range from 10 cm to jumbo size
+  function computeHome(visual) {
+    const vFov = THREE.MathUtils.degToRad(camera.fov);
+    const extent = Math.max(visual.height * 1.25, visual.radius * 2.6, 1.1);
+    const fitH = extent / (2 * Math.tan(vFov / 2));
+    const dist = fitH * 1.4 / Math.min(1, camera.aspect);
+    home.target.set(0, PLATFORM_TOP + visual.height * 0.5, 0);
+    home.pos.copy(home.target).addScaledVector(HOME_DIR, dist);
+    home.min = dist * 0.45;
+    home.max = dist * 1.8;
+    controls.minDistance = home.min;
+    controls.maxDistance = home.max;
+  }
+  function flyHome(duration) {
+    const p0 = camera.position.clone(), t0 = controls.target.clone();
+    tween(duration, k => {
+      const e = easeOutCubic(k);
+      camera.position.lerpVectors(p0, home.pos, e);
+      controls.target.lerpVectors(t0, home.target, e);
+    });
+  }
+
   function setProduct(id) {
     if (current && current.id === id) return;
     const product = findProduct(id);
@@ -129,6 +149,10 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
 
     const prev = current;
     current = next;
+    current.visual = product.visual;
+    computeHome(product.visual);
+    if (prev) flyHome(800);
+    else { camera.position.copy(home.pos); controls.target.copy(home.target); controls.update(); }
     if (prev) {
       const g = prev.roll.group, startRot = g.rotation.y;
       tween(320, k => {
@@ -164,7 +188,7 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
     pauseAutoRotate();
     const offset = camera.position.clone().sub(controls.target);
     const from = offset.length();
-    const to = THREE.MathUtils.clamp(from * factor, MIN_DIST, MAX_DIST);
+    const to = THREE.MathUtils.clamp(from * factor, home.min, home.max);
     const dir = offset.normalize();
     tween(420, k => {
       camera.position.copy(controls.target).addScaledVector(dir, lerp(from, to, easeOutCubic(k)));
@@ -172,12 +196,7 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
   }
   function reset() {
     pauseAutoRotate();
-    const p0 = camera.position.clone(), t0 = controls.target.clone();
-    tween(700, k => {
-      const e = easeOutCubic(k);
-      camera.position.lerpVectors(p0, HOME_POS, e);
-      controls.target.lerpVectors(t0, HOME_TARGET, e);
-    });
+    flyHome(700);
   }
 
   /* ---------- Size ---------- */
@@ -188,6 +207,7 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
     camera.aspect = w / h;
     camera.fov = camera.aspect < 0.8 ? 44 : 35;
     camera.updateProjectionMatrix();
+    if (current) computeHome(current.visual);
     wake();
   }
   const ro = new ResizeObserver(resize);
@@ -222,8 +242,8 @@ export function initStudio({ canvas, viewport, productId, onInteract }) {
   const onVis = () => { if (!document.hidden) wake(); };
   document.addEventListener('visibilitychange', onVis);
 
+  resize();               // size first, so the first product is framed for the real aspect
   setProduct(productId);
-  resize();
   renderer.compile(scene, camera);
   renderer.render(scene, camera);
 
