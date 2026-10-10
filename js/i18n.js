@@ -56,7 +56,7 @@
     'products.eyebrow': 'Product Range',
     'products.title': 'Stretch Film <span class="text-cyan">Solutions</span>',
     'products.sub': 'Product names, descriptions and specifications to be confirmed by EGY PACK.',
-    'products.p1': 'Machine Stretch Film',
+    'products.p1': 'Automatic Stretch Film',
     'products.p2': 'Hand Stretch Film',
     'products.p3': 'Pre-Stretched Film',
     'products.p4': 'Colored &amp; Custom Film',
