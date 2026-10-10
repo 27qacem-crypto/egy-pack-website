@@ -240,6 +240,8 @@
   /* Facebook link appears only once its official URL is configured */
   var fb = document.getElementById('footerFacebook');
   if (fb && cfg && cfg.facebookUrl) { fb.querySelector('a').href = cfg.facebookUrl; fb.hidden = false; }
+  var fbBtn = document.getElementById('fbFloat');
+  if (fbBtn) { if (cfg && cfg.facebookUrl) fbBtn.href = cfg.facebookUrl; else fbBtn.hidden = true; }
 
   /* ---------- Floating WhatsApp button ---------- */
   var waFloat = document.getElementById('waFloat');
@@ -247,13 +249,20 @@
     // On small screens, step aside while the 3D controls fill the bottom of the screen
     var busy = new Set();
     var small = window.matchMedia('(max-width: 860px)');
-    var update = function () { waFloat.classList.toggle('is-tucked', small.matches && busy.size > 0); };
+    var fbFloat = document.getElementById('fbFloat');
+    var update = function () {
+      var tuck = small.matches && busy.size > 0;
+      waFloat.classList.toggle('is-tucked', tuck);
+      if (fbFloat) fbFloat.classList.toggle('is-tucked', tuck);
+    };
     var tuckObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) busy.add(e.target); else busy.delete(e.target); });
       update();
     }, { threshold: 0.15 });
     // …and while a form with its own WhatsApp button is on screen
     ['studioViewport', 'wrapStage', 'calcForm', 'contactForm'].forEach(function (id) { var el = document.getElementById(id); if (el) tuckObs.observe(el); });
+    var heroStats = document.querySelector('.hero__stats');   // …and while the hero figures sit where the buttons are
+    if (heroStats) tuckObs.observe(heroStats);
     if (small.addEventListener) small.addEventListener('change', update);
   }
 

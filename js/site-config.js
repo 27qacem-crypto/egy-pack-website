@@ -16,10 +16,8 @@ window.EGY_CONFIG = {
     en: 'Hello, I would like to inquire about EGY PACK industrial stretch film products.'
   },
 
-  /* CONFIGURATION PLACEHOLDER — official Facebook page URL.
-     Leave empty until the exact URL is confirmed; the footer link only appears once this is set.
-     Example: 'https://www.facebook.com/<official-page>' */
-  facebookUrl: ''
+  /* Official Facebook page (shows the floating Facebook button and the footer link) */
+  facebookUrl: 'https://www.facebook.com/share/1JrzRy1y7q/'
 };
 
 /* Builds a wa.me link with a correctly encoded prefilled message */

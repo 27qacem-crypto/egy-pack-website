@@ -461,6 +461,13 @@ p { margin: 0 0 1em; }
   .contact__list span { min-width: 0; width: 100%; }
   .footer__bottom { padding-bottom: 84px; }   /* clear the floating WhatsApp button */
 }
+.fb-float { bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
+.fb-float::after { animation-delay: 1.6s; }
+.fb-float svg { width: 25px; height: 25px; }
+.wa-float[hidden] { display: none; }
+@media (max-width: 560px) {
+  .fb-float { bottom: calc(74px + env(safe-area-inset-bottom, 0px)); } .fb-float svg { width: 22px; height: 22px; }
+}
 @media (prefers-reduced-motion: reduce) { .wa-float::after { animation: none; display: none; } }
 
 /* Reveal on scroll */
