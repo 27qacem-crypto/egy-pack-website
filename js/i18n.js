@@ -130,7 +130,7 @@
     'ind.c1.title': 'Factories',
     'ind.c1.alt2': 'المصانع',
     'ind.c1.desc': 'Stretch-film wrapping solutions for industrial products and goods during storage and transport.',
-    'ind.c1.alt': 'Illustrative image: factory warehouse with stretch-wrapped pallets and manufacturing equipment',
+    'ind.c1.alt': 'Illustrative image: stretch-wrapped carton pallets at a loading bay with a forklift',
     'ind.c2.title': 'Traders &amp; Distributors',
     'ind.c2.alt2': 'التجار والموزعون',
     'ind.c2.desc': 'Stretch-film rolls in a range of sizes and weights to meet the needs of traders and distributors.',
