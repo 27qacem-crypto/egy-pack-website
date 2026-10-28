@@ -1,0 +1,646 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>EGY PACK Website</title>
+<script>document.documentElement.lang="ar";document.documentElement.dir="rtl";</script>
+<meta name="description" content="مؤسسة إيجي باك للاسترتش الصناعي (EGY PACK): تصنيع وتقطيع وتجارة الاسترتش الصناعي، بخبرة أكثر من 15 عامًا. هاتف 01003070334 · واتساب ‎+201065786620" />
+  <meta name="theme-color" content="#0a1a4a" />
+
+  <!-- Official EGY PACK favicon -->
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/app_icon.ico" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="EGY PACK — إيجي باك" />
+  <meta property="og:title" content="مؤسسة إيجي باك للاسترتش الصناعي | EGY PACK" />
+  <meta property="og:description" content="تصنيع وتقطيع وتجارة الاسترتش الصناعي، بخبرة أكثر من 15 عامًا. Industrial Stretch Film Manufacturing, Cutting &amp; Trading — more than 15 years of experience." />
+  <meta property="og:image" content="assets/images/logo.png" />
+  <meta property="og:locale" content="ar_EG" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Structured business data (no physical address published yet) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "مؤسسة إيجي باك للاسترتش الصناعي",
+    "alternateName": "EGY PACK",
+    "description": "تصنيع وتقطيع وتجارة الاسترتش الصناعي. Industrial Stretch Film Manufacturing, Cutting & Trading.",
+    "email": "marketing@egypack.org",
+    "telephone": "+201003070334",
+    "contactPoint": [
+      { "@type": "ContactPoint", "telephone": "+201003070334", "contactType": "customer service", "availableLanguage": ["Arabic", "English"] },
+      { "@type": "ContactPoint", "telephone": "+201065786620", "contactType": "sales", "description": "WhatsApp", "availableLanguage": ["Arabic", "English"] }
+    ],
+    "sameAs": ["https://www.facebook.com/share/1JrzRy1y7q/"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Orbitron:wght@500;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+<script>document.body.classList.add("is-loading");</script>
+<!-- ============ LOADING SCREEN ============ -->
+  <div id="loader" class="loader" aria-live="polite" aria-label="جارٍ تحميل إيجي باك" data-i18n-attr="aria-label:loader.label">
+    <div class="loader__glow"></div>
+    <div class="loader__ring">
+      <span class="brand-logo brand-logo--xl">
+          <img class="brand-logo__img" src="assets/images/logo-light.png" alt="EGY PACK — إيجي باك" width="214" height="192" />
+          <span class="brand-logo__fx" aria-hidden="true"><span class="brand-logo__depth"></span><span class="brand-logo__metal"></span><span class="brand-logo__sheen"></span></span>
+        </span>
+    </div>
+    <div class="loader__bar"><span id="loaderProgress"></span></div>
+    <p class="loader__text"><span lang="en" dir="ltr">EGY PACK</span> <span class="ar">· إيجي باك</span></p>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__brand" aria-label="الصفحة الرئيسية لإيجي باك" data-i18n-attr="aria-label:nav.homeLabel">
+        <span class="brand-logo brand-logo--nav">
+          <img class="brand-logo__img" src="assets/images/logo-light.png" alt="EGY PACK — إيجي باك" width="214" height="192" />
+          <span class="brand-logo__fx" aria-hidden="true"><span class="brand-logo__depth"></span><span class="brand-logo__metal"></span><span class="brand-logo__sheen"></span></span>
+        </span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="القائمة الرئيسية" data-i18n-attr="aria-label:nav.label">
+        <a href="#home" data-i18n="nav.home">الرئيسية</a>
+        <a href="#about" data-i18n="nav.about">من نحن</a>
+        <a href="#products" data-i18n="nav.products">المنتجات</a>
+        <a href="#technology" data-i18n="nav.technology">التقنية</a>
+        <a href="#industries" data-i18n="nav.industries">القطاعات</a>
+        <a href="#contact" class="btn btn--ghost btn--sm" data-i18n="nav.quote">اطلب عرض سعر</a>
+      </nav>
+      <div class="nav__actions">
+        <button type="button" class="btn btn--ghost btn--sm lang-switch" id="langSwitch" lang="en" aria-label="Switch to English">EN</button>
+        <button class="nav__toggle" id="navToggle" aria-label="فتح القائمة" data-i18n-attr="aria-label:nav.toggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <canvas id="hero3d" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__vignette"></div>
+      <div class="container hero__content">
+        <p class="eyebrow"><span class="dot"></span> <span data-i18n="hero.eyebrow">تصنيع الاستريتش الصناعي</span></p>
+        <h1 class="hero__title" data-i18n="hero.title">
+          صُمّم <span class="text-cyan">ليُثبّت</span><br />
+          العالم معًا
+        </h1>
+        <p class="hero__ar alt-lang" lang="en" dir="ltr" data-i18n="hero.alt">EGY PACK — Industrial Stretch Film</p>
+        <p class="hero__lead" data-i18n="hero.lead">
+          مؤسسة إيجي باك للاسترتش الصناعي: تصنيع وتقطيع وتجارة الاسترتش الصناعي،
+          بخبرة أكثر من 15 عامًا.
+        </p>
+        <div class="hero__cta">
+          <a href="#products" class="btn btn--primary" data-i18n="hero.ctaProducts">استكشف المنتجات</a>
+          <a href="#contact" class="btn btn--ghost" data-i18n="hero.ctaQuote">اطلب عرض سعر</a>
+        </div>
+        <ul class="hero__stats">
+          <li><strong dir="ltr">15+</strong><span data-i18n="company.years">عامًا من الخبرة</span></li>
+          <li><strong dir="ltr">4</strong><span data-i18n="company.products">منتجات</span></li>
+          <li><strong dir="ltr">0.5–40</strong><span data-i18n="company.weights">كجم نطاق الأوزان</span></li>
+        </ul>
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="انتقل للأسفل" data-i18n-attr="aria-label:hero.scroll"><span></span></a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="about__text reveal">
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="about.eyebrow">عن إيجي باك</span></p>
+          <h2 class="section__title" data-i18n="about.title">عن <span class="text-silver">إيجي باك</span></h2>
+          <p class="about__lead" data-i18n="about.body">
+            بخبرة تزيد عن 15 عامًا في مجال الاسترتش الصناعي، تتخصص مؤسسة إيجي باك في تصنيع وتقطيع وتجارة بكر الاسترتش
+            بمقاسات وأوزان متنوعة، لتلبية احتياجات المصانع والتجار وشركات الشحن والنقل. نسعى لتقديم حلول تغليف عملية
+            تناسب احتياجات عملائنا، مع الاهتمام بجودة التصنيع وتوفير المنتجات بالمواصفات المطلوبة.
+          </p>
+          <p class="ar--block alt-lang" lang="en" dir="ltr" data-i18n="about.alt">
+            EGY PACK — Industrial Stretch Film Manufacturing, Cutting &amp; Trading.
+          </p>
+          <ul class="about-features">
+            <li class="about-feature reveal">
+              <span class="about-feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 20V11l5 3v-3l5 3V7h3v13"/><path d="M3 20h18"/><circle cx="18.5" cy="6" r="2"/><path d="M17 7.4L21 11M20 7.4L16 11"/></svg></span>
+              <div class="about-feature__text">
+                <h3 data-i18n="about.f1.title">تصنيع وتقطيع الاسترتش الصناعي</h3>
+                <p class="about-feature__alt alt-lang" lang="en" dir="ltr" data-i18n="about.f1.alt2">Manufacturing &amp; Cutting</p>
+                <p class="about-feature__desc" data-i18n="about.f1.desc">من بكر الجامبو إلى المقاسات والأوزان المختلفة.</p>
+              </div>
+            </li>
+            <li class="about-feature reveal">
+              <span class="about-feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="6" rx="2" ry="1"/><path d="M4 6v12a2 1 0 0 0 4 0V6"/><ellipse cx="12" cy="9" rx="2" ry="1"/><path d="M10 9v9a2 1 0 0 0 4 0V9"/><ellipse cx="18" cy="13" rx="2" ry="1"/><path d="M16 13v5a2 1 0 0 0 4 0v-5"/></svg></span>
+              <div class="about-feature__text">
+                <h3 data-i18n="about.f2.title">مقاسات وأوزان متنوعة</h3>
+                <p class="about-feature__alt alt-lang" lang="en" dir="ltr" data-i18n="about.f2.alt2">Multiple Sizes &amp; Weights</p>
+                <p class="about-feature__desc" data-i18n="about.f2.desc">بكر جامبو، 50 سم، 30 سم، و10 سم.</p>
+              </div>
+            </li>
+            <li class="about-feature reveal">
+              <span class="about-feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="5" height="9" rx="1"/><rect x="9.5" y="7" width="5" height="13" rx="1"/><rect x="16" y="3" width="5" height="17" rx="1"/><path d="M5.5 14v1M12 10v1M12 14v1M18.5 6v1M18.5 10v1M18.5 14v1"/></svg></span>
+              <div class="about-feature__text">
+                <h3 data-i18n="about.f3.title">نخدم قطاعات أعمال متعددة</h3>
+                <p class="about-feature__alt alt-lang" lang="en" dir="ltr" data-i18n="about.f3.alt2">Serving Multiple Business Sectors</p>
+                <p class="about-feature__desc" data-i18n="about.f3.desc">المصانع والتجار والموزعين وشركات الشحن والنقل.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="about__visual reveal">
+          <div class="glass-card glass-card--logo">
+            <span class="brand-logo brand-logo--lg">
+          <img class="brand-logo__img" src="assets/images/logo-light.png" alt="EGY PACK — إيجي باك" width="214" height="192" />
+          <span class="brand-logo__fx" aria-hidden="true"><span class="brand-logo__depth"></span><span class="brand-logo__metal"></span><span class="brand-logo__sheen"></span></span>
+        </span>
+            <div class="about__metrics">
+              <div><strong dir="ltr">15+</strong><span data-i18n="company.years">عامًا من الخبرة</span></div>
+              <div><strong dir="ltr">4</strong><span data-i18n="company.products">منتجات</span></div>
+              <div><strong dir="ltr">0.5–40</strong><span data-i18n="company.weights">كجم نطاق الأوزان</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="section section--alt" id="products">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="products.eyebrow">مجموعة المنتجات</span></p>
+          <h2 class="section__title" data-i18n="products.title">حلول <span class="text-cyan">الاستريتش</span></h2>
+          <p class="section__sub" data-i18n="products.sub">عروض وأوزان البكرات حسب بيانات إيجي باك الرسمية. اختر منتجًا لعرضه ثلاثي الأبعاد وحساب الوزن.</p>
+        </div>
+        <div class="grid grid--products">
+          <article class="card tilt reveal" data-card="jumbo">
+            <div class="card__icon">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="12" cy="24" rx="8" ry="18"/><path d="M12 6h24a8 18 0 0 1 0 36H12"/><ellipse cx="12" cy="24" rx="2" ry="4"/></svg>
+            </div>
+            <h3 data-i18n="cat.jumbo">بكرة جامبو</h3>
+            <p data-i18n="cat.jumbo.desc">بكرة كبيرة الحجم تُنتَج مباشرةً من ماكينة التصنيع الرئيسية.</p>
+            <ul class="card__specs"><li><span data-i18n="spec.width">العرض</span>: <span class="js-width" data-width="jumbo">غير محدد</span></li><li><span data-i18n="spec.weightRange">نطاق الوزن</span>: <span class="js-range" data-range="jumbo">30 – 40 كجم</span></li></ul>
+            <button type="button" class="card__cta" data-show-product="jumbo" data-i18n="cat.view">اعرضه ثلاثي الأبعاد واحسب الوزن</button>
+          </article>
+          <article class="card tilt reveal" data-card="r50">
+            <div class="card__icon">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="12" cy="24" rx="5" ry="11"/><path d="M12 13h26a5 11 0 0 1 0 22H12"/><ellipse cx="12" cy="24" rx="2" ry="4"/></svg>
+            </div>
+            <h3 data-i18n="cat.r50">بكرة استريتش 50 سم</h3>
+            <p data-i18n="cat.r50.desc">بكرة استريتش بعرض 50 سم.</p>
+            <ul class="card__specs"><li><span data-i18n="spec.width">العرض</span>: <span class="js-width" data-width="r50">50 سم</span></li><li><span data-i18n="spec.weightRange">نطاق الوزن</span>: <span class="js-range" data-range="r50">1.5 – 5 كجم</span></li></ul>
+            <button type="button" class="card__cta" data-show-product="r50" data-i18n="cat.view">اعرضه ثلاثي الأبعاد واحسب الوزن</button>
+          </article>
+          <article class="card tilt reveal" data-card="r30">
+            <div class="card__icon">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="12" cy="24" rx="5" ry="11"/><path d="M12 13h16a5 11 0 0 1 0 22H12"/><ellipse cx="12" cy="24" rx="2" ry="4"/></svg>
+            </div>
+            <h3 data-i18n="cat.r30">بكرة استريتش 30 سم</h3>
+            <p data-i18n="cat.r30.desc">بكرة استريتش بعرض 30 سم.</p>
+            <ul class="card__specs"><li><span data-i18n="spec.width">العرض</span>: <span class="js-width" data-width="r30">30 سم</span></li><li><span data-i18n="spec.weightRange">نطاق الوزن</span>: <span class="js-range" data-range="r30">1 – 2 كجم</span></li></ul>
+            <button type="button" class="card__cta" data-show-product="r30" data-i18n="cat.view">اعرضه ثلاثي الأبعاد واحسب الوزن</button>
+          </article>
+          <article class="card tilt reveal" data-card="r10">
+            <div class="card__icon">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="12" cy="24" rx="5" ry="11"/><path d="M12 13h6a5 11 0 0 1 0 22H12"/><ellipse cx="12" cy="24" rx="2" ry="4"/></svg>
+            </div>
+            <h3 data-i18n="cat.r10">بكرة استريتش 10 سم</h3>
+            <p data-i18n="cat.r10.desc">بكرة استريتش بعرض 10 سم، بوزن ثابت.</p>
+            <ul class="card__specs"><li><span data-i18n="spec.width">العرض</span>: <span class="js-width" data-width="r10">10 سم</span></li><li><span data-i18n="spec.weightRange">نطاق الوزن</span>: <span class="js-range" data-range="r10">0.5 كجم (ثابت)</span></li></ul>
+            <button type="button" class="card__cta" data-show-product="r10" data-i18n="cat.view">اعرضه ثلاثي الأبعاد واحسب الوزن</button>
+          </article>
+        </div>
+
+        <!-- ============ 3D PRODUCT STUDIO ============ -->
+        <div class="studio" id="studio">
+          <div class="studio__head reveal">
+            <p class="eyebrow"><span class="dot"></span> <span data-i18n="studio.eyebrow">كتالوج المنتجات الذكي</span></p>
+            <h3 class="studio__title" data-i18n="studio.title">استكشف الرول من <span class="text-cyan">كل زاوية</span></h3>
+          </div>
+          <div class="studio__layout">
+            <div class="studio__viewport" id="studioViewport">
+              <canvas id="studioCanvas" class="studio__canvas" role="img" aria-label="نموذج ثلاثي الأبعاد لرول استريتش يمكن تدويره وتكبيره" data-i18n-attr="aria-label:studio.canvasLabel"></canvas>
+              <p class="studio__status" id="studioLoading" data-i18n="studio.loading">جارٍ تحميل العرض ثلاثي الأبعاد…</p>
+              <div class="studio__fallback" id="studioFallback" hidden>
+                <svg viewBox="0 0 200 200" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="sfFilm" x1="0" x2="1"><stop offset="0" stop-color="#8fa9c8"/><stop offset=".45" stop-color="#e9f2fb"/><stop offset="1" stop-color="#7d93b3"/></linearGradient>
+                  </defs>
+                  <ellipse cx="100" cy="176" rx="74" ry="10" fill="rgba(0,229,255,.18)"/>
+                  <rect x="52" y="40" width="96" height="130" fill="url(#sfFilm)" opacity=".9"/>
+                  <ellipse cx="100" cy="170" rx="48" ry="12" fill="#9fb5cf"/>
+                  <ellipse cx="100" cy="40" rx="48" ry="12" fill="#dbe7f3"/>
+                  <ellipse cx="100" cy="40" rx="16" ry="4.5" fill="#9a7246"/>
+                  <ellipse cx="100" cy="40" rx="12" ry="3.2" fill="#3b2a18"/>
+                </svg>
+                <p data-i18n="studio.fallback">العرض ثلاثي الأبعاد غير مدعوم على هذا الجهاز. ما زال بإمكانك اختيار المنتج وحساب الوزن وطلب عرض السعر.</p>
+              </div>
+              <span class="studio__badge" data-i18n="studio.illustrative">نموذج توضيحي</span>
+              <p class="studio__hint" id="studioHint" data-i18n="studio.hint">اسحب للتدوير · استخدم العجلة أو إصبعين للتكبير</p>
+              <div class="studio__tools" role="toolbar" aria-label="أدوات العرض" data-i18n-attr="aria-label:studio.tools">
+                <button type="button" class="tool-btn" data-act="rotate-left" aria-label="تدوير لليسار" title="تدوير لليسار" data-i18n-attr="aria-label:studio.rotateLeft;title:studio.rotateLeft">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v5h5"/></svg>
+                </button>
+                <button type="button" class="tool-btn" data-act="rotate-right" aria-label="تدوير لليمين" title="تدوير لليمين" data-i18n-attr="aria-label:studio.rotateRight;title:studio.rotateRight">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>
+                </button>
+                <button type="button" class="tool-btn" data-act="zoom-in" aria-label="تكبير" title="تكبير" data-i18n-attr="aria-label:studio.zoomIn;title:studio.zoomIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M11 8v6M8 11h6M16.5 16.5L21 21"/></svg>
+                </button>
+                <button type="button" class="tool-btn" data-act="zoom-out" aria-label="تصغير" title="تصغير" data-i18n-attr="aria-label:studio.zoomOut;title:studio.zoomOut">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M16.5 16.5L21 21"/></svg>
+                </button>
+                <button type="button" class="tool-btn tool-btn--text" data-act="reset" data-i18n="studio.reset">إعادة الضبط</button>
+              </div>
+            </div>
+
+            <aside class="studio__panel glass-card" aria-labelledby="studioName">
+              <p class="studio__label" id="studioChooseLabel" data-i18n="studio.choose">اختر المنتج</p>
+              <div class="studio__selector" role="radiogroup" aria-labelledby="studioChooseLabel">
+                <button type="button" role="radio" aria-checked="true" data-product="jumbo"><span data-i18n="cat.jumbo">بكرة جامبو</span><small class="js-range" data-range="jumbo"></small></button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="r50"><span data-i18n="cat.r50">بكرة استريتش 50 سم</span><small class="js-range" data-range="r50"></small></button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="r30"><span data-i18n="cat.r30">بكرة استريتش 30 سم</span><small class="js-range" data-range="r30"></small></button>
+                <button type="button" role="radio" aria-checked="false" tabindex="-1" data-product="r10"><span data-i18n="cat.r10">بكرة استريتش 10 سم</span><small class="js-range" data-range="r10"></small></button>
+              </div>
+              <h4 class="studio__name" id="studioName" data-i18n="cat.jumbo">بكرة جامبو</h4>
+              <p class="studio__desc" id="studioDesc" data-i18n="cat.jumbo.desc">بكرة كبيرة الحجم تُنتَج مباشرةً من ماكينة التصنيع الرئيسية.</p>
+              <dl class="studio__specs">
+                <div><dt data-i18n="spec.width">العرض</dt><dd id="specWidth">غير محدد</dd></div>
+                <div><dt data-i18n="spec.weightRange">نطاق الوزن</dt><dd id="specWeight">30 – 40 كجم</dd></div>
+              </dl>
+
+              <!-- Weight calculator + WhatsApp quotation -->
+              <form class="calc" id="calcForm" novalidate>
+                <p class="calc__title" data-i18n="calc.title">حاسبة الوزن وطلب عرض السعر</p>
+                <div class="calc__row">
+                  <div class="field">
+                    <label for="calcWeight" data-i18n="calc.weight">الوزن المطلوب للبكرة (كجم)</label>
+                    <input id="calcWeight" name="weight" type="text" inputmode="decimal" dir="ltr" autocomplete="off" required aria-describedby="calcWeightHelp" />
+                    <p class="calc__help" id="calcWeightHelp"></p>
+                  </div>
+                  <div class="field">
+                    <label for="calcQty" data-i18n="calc.qty">عدد البكرات</label>
+                    <input id="calcQty" name="rolls" type="text" inputmode="numeric" dir="ltr" autocomplete="off" required />
+                  </div>
+                </div>
+                <div class="calc__result" aria-live="polite">
+                  <span data-i18n="calc.total">الوزن الإجمالي التقديري</span>
+                  <strong id="calcTotal" dir="ltr">—</strong>
+                </div>
+                <p class="calc__note" data-i18n="calc.note">الوزن المُدخل وزن مطلوب، وليس تأكيدًا لتوفره في المخزون. يفترض الحساب أن الوزن المُدخل هو الوزن الإجمالي للبكرة الواحدة.</p>
+                <div class="calc__row">
+                  <div class="field">
+                    <label for="calcName" data-i18n="calc.name">الاسم (اختياري)</label>
+                    <input id="calcName" name="name" type="text" autocomplete="name" dir="auto" />
+                  </div>
+                  <div class="field">
+                    <label for="calcPhone" data-i18n="calc.phone">رقم الهاتف (اختياري)</label>
+                    <input id="calcPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" />
+                  </div>
+                </div>
+                <button type="submit" class="btn btn--primary btn--block" id="studioQuote" data-i18n="calc.quote">اطلب عرض سعر عبر واتساب</button>
+                <p class="form__status" id="calcStatus" role="status"></p>
+              </form>
+              <p class="studio__note" data-i18n="studio.note">النماذج ثلاثية الأبعاد توضيحية. عرض بكرة الجامبو غير محدد بعد.</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE THE PROTECTION (scroll-driven wrapping) ============ -->
+    <section class="wrapx" id="protection" aria-labelledby="wrapxTitle">
+      <div class="wrapx__track" id="wrapTrack">
+        <div class="wrapx__stage" id="wrapStage">
+          <canvas id="wrapCanvas" class="wrapx__canvas" role="img" aria-label="عرض ثلاثي الأبعاد لتغليف بالتة بالاستريتش" data-i18n-attr="aria-label:wrap.canvasLabel"></canvas>
+          <div class="wrapx__fallback" id="wrapFallback" hidden>
+            <svg viewBox="0 0 240 200" aria-hidden="true">
+              <defs>
+                <pattern id="wfFilm" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)"><rect width="10" height="10" fill="rgba(223,241,255,.18)"/><rect width="10" height="2" fill="rgba(223,241,255,.28)"/></pattern>
+              </defs>
+              <ellipse cx="120" cy="186" rx="100" ry="10" fill="rgba(0,229,255,.16)"/>
+              <rect x="40" y="166" width="160" height="16" fill="#b48a58"/>
+              <rect x="48" y="182" width="20" height="6" fill="#8d6a42"/><rect x="110" y="182" width="20" height="6" fill="#8d6a42"/><rect x="172" y="182" width="20" height="6" fill="#8d6a42"/>
+              <g fill="#b07f4c" stroke="#6b4a29" stroke-width="2">
+                <rect x="42" y="118" width="78" height="48"/><rect x="120" y="118" width="78" height="48"/>
+                <rect x="42" y="70" width="78" height="48"/><rect x="120" y="70" width="78" height="48"/>
+                <rect x="42" y="22" width="78" height="48"/><rect x="120" y="22" width="78" height="48"/>
+              </g>
+              <rect x="36" y="18" width="168" height="160" rx="4" fill="url(#wfFilm)" stroke="rgba(0,229,255,.45)" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="wrapx__veil"></div>
+          <div class="container wrapx__ui">
+            <header class="wrapx__head">
+              <p class="eyebrow"><span class="dot"></span> <span data-i18n="wrap.eyebrow">تجربة تفاعلية</span></p>
+              <h2 class="section__title" id="wrapxTitle" data-i18n="wrap.title">شاهد <span class="text-cyan">قوة التغليف</span></h2>
+              <p class="wrapx__sub" data-i18n="wrap.sub">مرّر لأسفل لمشاهدة مراحل تغليف بالتة بالاستريتش. عرض توضيحي.</p>
+            </header>
+            <div class="wrapx__panel glass-card">
+              <p class="wrapx__step"><span data-i18n="wrap.stage">المرحلة</span> <span class="wrapx__num"><span id="wrapStageNum">1</span> / 6</span></p>
+              <ol class="wrapx__captions" id="wrapCaptions">
+                <li class="is-active" data-i18n="wrap.c1">حمولة جاهزة: كراتين مرصوصة على بالتة خشبية، دون تغليف.</li>
+                <li data-i18n="wrap.c2">تقترب بكرة الاستريتش من البالتة.</li>
+                <li data-i18n="wrap.c3">يبدأ التغليف من القاعدة لربط الحمولة بالبالتة.</li>
+                <li data-i18n="wrap.c4">يرتفع الفيلم طبقة فوق طبقة حول الكراتين.</li>
+                <li data-i18n="wrap.c5">اكتمل التغليف من القاعدة حتى القمة.</li>
+                <li data-i18n="wrap.c6">الحمولة الآن مغلّفة بالكامل وجاهزة للنقل.</li>
+              </ol>
+              <div class="wrapx__progress" aria-hidden="true"><span id="wrapProgress"></span></div>
+              <div class="wrapx__controls">
+                <button type="button" class="btn btn--ghost btn--sm" id="wrapReplay" data-i18n="wrap.replay">إعادة التشغيل</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="wrapPlay" hidden>
+                  <span data-i18n="wrap.pause" id="wrapPauseLabel">إيقاف مؤقت</span><span data-i18n="wrap.play" id="wrapPlayLabel" hidden>تشغيل</span>
+                </button>
+                <span class="wrapx__hint" id="wrapDragHint" hidden data-i18n="wrap.drag">اسحب لتدوير البالتة</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MANUFACTURING PROCESS ============ -->
+    <section class="section section--mfg" id="technology">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="mfg.eyebrow">مراحل التصنيع</span></p>
+          <h2 class="section__title" data-i18n="mfg.title">من خامات عالية الجودة <span class="text-cyan">إلى منتج جاهز</span></h2>
+        </div>
+        <ol class="mfg">
+          <li class="mfg__step reveal">
+            <article class="mfg__card">
+              <figure class="mfg__media">
+                <img src="assets/images/process/01-raw-materials.webp" alt="صورة توضيحية: حبيبات خامات بلاستيكية بين يدي عامل" data-i18n-attr="alt:mfg.s1.alt" width="960" height="640" loading="lazy" decoding="async" />
+                <span class="mfg__num">01</span>
+                <span class="media__tag" data-i18n="media.illustrative">صورة توضيحية</span>
+              </figure>
+              <div class="mfg__body">
+                <span class="mfg__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="3"/><circle cx="15" cy="16" r="3"/><circle cx="11.5" cy="9" r="3"/><circle cx="18" cy="9.5" r="2.2"/></svg></span>
+                <h3 data-i18n="mfg.s1.title">الخامات</h3>
+                <p class="mfg__alt alt-lang" lang="en" dir="ltr" data-i18n="mfg.s1.alt2">Raw Materials</p>
+                <p class="mfg__desc" data-i18n="mfg.s1.desc">تبدأ عملية الإنتاج بتجهيز الخامات البلاستيكية المستخدمة في صناعة الاسترتش الصناعي.</p>
+              </div>
+            </article>
+            <span class="mfg__arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h30"/><path d="M26 5l8 7-8 7"/></svg></span>
+          </li>
+          <li class="mfg__step reveal">
+            <article class="mfg__card">
+              <figure class="mfg__media">
+                <img src="assets/images/process/02-film-production.webp" alt="صورة توضيحية: خط إنتاج فيلم الاسترتش وعليه بكرة فيلم" data-i18n-attr="alt:mfg.s2.alt" width="633" height="422" loading="lazy" decoding="async" />
+                <span class="mfg__num">02</span>
+                <span class="media__tag" data-i18n="media.illustrative">صورة توضيحية</span>
+              </figure>
+              <div class="mfg__body">
+                <span class="mfg__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V6h4l1 14z"/><path d="M3 20h18"/><path d="M15 6V3h2v3"/></svg></span>
+                <h3 data-i18n="mfg.s2.title">مرحلة التصنيع</h3>
+                <p class="mfg__alt alt-lang" lang="en" dir="ltr" data-i18n="mfg.s2.alt2">Film Production</p>
+                <p class="mfg__desc" data-i18n="mfg.s2.desc">تدخل الخامات إلى ماكينة التصنيع الأساسية لإنتاج فيلم الاسترتش الصناعي.</p>
+              </div>
+            </article>
+            <span class="mfg__arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h30"/><path d="M26 5l8 7-8 7"/></svg></span>
+          </li>
+          <li class="mfg__step reveal">
+            <article class="mfg__card">
+              <figure class="mfg__media">
+                <img src="assets/images/process/03-jumbo-roll.webp" alt="صورة توضيحية: بكرة استرتش جامبو كبيرة" data-i18n-attr="alt:mfg.s3.alt" width="960" height="640" loading="lazy" decoding="async" />
+                <span class="mfg__num">03</span>
+                <span class="media__tag" data-i18n="media.illustrative">صورة توضيحية</span>
+              </figure>
+              <div class="mfg__body">
+                <span class="mfg__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="7" cy="12" rx="3.5" ry="8"/><path d="M7 4h10a3.5 8 0 0 1 0 16H7"/><ellipse cx="7" cy="12" rx="1.2" ry="2.6"/></svg></span>
+                <h3 data-i18n="mfg.s3.title">بكرة جامبو</h3>
+                <p class="mfg__alt alt-lang" lang="en" dir="ltr" data-i18n="mfg.s3.alt2">Jumbo Roll Production</p>
+                <p class="mfg__desc" data-i18n="mfg.s3.desc">يتم تجميع الفيلم المنتج على بكر جامبو بأوزان تتراوح من 30 إلى 40 كجم.</p>
+              </div>
+            </article>
+            <span class="mfg__arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h30"/><path d="M26 5l8 7-8 7"/></svg></span>
+          </li>
+          <li class="mfg__step reveal">
+            <article class="mfg__card">
+              <figure class="mfg__media">
+                <img src="assets/images/process/04-slitting-rewinding.webp" alt="صورة توضيحية: ماكينة تقطيع وإعادة لف الاسترتش" data-i18n-attr="alt:mfg.s4.alt" width="960" height="640" loading="lazy" decoding="async" />
+                <span class="mfg__num">04</span>
+                <span class="media__tag" data-i18n="media.illustrative">صورة توضيحية</span>
+              </figure>
+              <div class="mfg__body">
+                <span class="mfg__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.5"/><circle cx="6" cy="17" r="2.5"/><path d="M8.2 8.3L20 18M8.2 15.7L20 6"/></svg></span>
+                <h3 data-i18n="mfg.s4.title">التقطيع وإعادة اللف</h3>
+                <p class="mfg__alt alt-lang" lang="en" dir="ltr" data-i18n="mfg.s4.alt2">Slitting &amp; Rewinding</p>
+                <p class="mfg__desc" data-i18n="mfg.s4.desc">يتم تقطيع وإعادة لف بكر الجامبو للحصول على العروض والأوزان المطلوبة.</p>
+              </div>
+            </article>
+            <span class="mfg__arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h30"/><path d="M26 5l8 7-8 7"/></svg></span>
+          </li>
+          <li class="mfg__step reveal">
+            <article class="mfg__card">
+              <figure class="mfg__media">
+                <img class="mfg__slide is-active" src="assets/images/process/05-finished-products-a.webp" alt="صورة توضيحية: بكر استرتش جاهزة على بالتة داخل مستودع" data-i18n-attr="alt:mfg.s5.alt1" width="800" height="600" loading="lazy" decoding="async" />
+                <img class="mfg__slide" src="assets/images/process/05-finished-products-b.webp" alt="صورة توضيحية: بكر استرتش جاهزة على كراتين وخط الإنتاج في الخلفية" data-i18n-attr="alt:mfg.s5.alt2" width="800" height="600" loading="lazy" decoding="async" />
+                <img class="mfg__slide" src="assets/images/process/05-finished-products-c.webp" alt="صورة توضيحية: بالتة محمّلة ببكر استرتش جاهزة" data-i18n-attr="alt:mfg.s5.alt3" width="500" height="375" loading="lazy" decoding="async" />
+                <span class="mfg__dots" role="group" aria-label="صور المنتجات النهائية" data-i18n-attr="aria-label:mfg.s5.gallery">
+                  <button type="button" class="is-active" aria-pressed="true" aria-label="الصورة 1" data-i18n-attr="aria-label:media.img1"></button>
+                  <button type="button" aria-pressed="false" aria-label="الصورة 2" data-i18n-attr="aria-label:media.img2"></button>
+                  <button type="button" aria-pressed="false" aria-label="الصورة 3" data-i18n-attr="aria-label:media.img3"></button>
+                </span>
+                <span class="mfg__num">05</span>
+                <span class="media__tag" data-i18n="media.illustrative">صورة توضيحية</span>
+              </figure>
+              <div class="mfg__body">
+                <span class="mfg__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="6" cy="6" rx="2" ry="1"/><path d="M4 6v12a2 1 0 0 0 4 0V6"/><ellipse cx="12" cy="9" rx="2" ry="1"/><path d="M10 9v9a2 1 0 0 0 4 0V9"/><ellipse cx="18" cy="13" rx="2" ry="1"/><path d="M16 13v5a2 1 0 0 0 4 0v-5"/></svg></span>
+                <h3 data-i18n="mfg.s5.title">المنتجات النهائية</h3>
+                <p class="mfg__alt alt-lang" lang="en" dir="ltr" data-i18n="mfg.s5.alt2">Finished Products</p>
+                <p class="mfg__desc" data-i18n="mfg.s5.desc">تجهيز بكر الاسترتش بمقاساتها وأوزانها المختلفة لتلبية طلبات العملاء.</p>
+              </div>
+            </article>
+          </li>
+        </ol>
+        <p class="media__note" data-i18n="media.note">الصور توضيحية مؤقتة ولا تمثل مصنع إيجي باك الفعلي، وسيتم استبدالها بصور المصنع.</p>
+      </div>
+    </section>
+
+    <!-- ============ INDUSTRIES ============ -->
+    <section class="section section--alt" id="industries">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="ind.eyebrow">القطاعات التي نخدمها</span></p>
+          <h2 class="section__title" data-i18n="ind.title">نخدم مختلف <span class="text-cyan">القطاعات الصناعية</span></h2>
+        </div>
+        <div class="ind-grid">
+          <a class="ind-card reveal" href="#contact" data-industry="factories">
+            <figure class="ind-card__media">
+              <img src="assets/images/industries/factories.webp" alt="صورة توضيحية: بالتات كراتين مغلّفة بالاسترتش عند رصيف التحميل ورافعة شوكية" data-i18n-attr="alt:ind.c1.alt" width="960" height="640" loading="lazy" decoding="async" />
+              <span class="media__tag" data-i18n="media.illustrative">صورة توضيحية</span>
+            </figure>
+            <div class="ind-card__panel">
+              <span class="ind-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21V11l6 3v-3l6 3V5h4v16"/><path d="M2 21h20"/><path d="M6 17h2M11 17h2"/></svg></span>
+              <div class="ind-card__text">
+                <h3 data-i18n="ind.c1.title">المصانع</h3>
+                <p class="ind-card__alt alt-lang" lang="en" dir="ltr" data-i18n="ind.c1.alt2">Factories</p>
+                <p data-i18n="ind.c1.desc">حلول تغليف الاسترتش للمنتجات والبضائع الصناعية أثناء التخزين والنقل.</p>
+                <span class="ind-card__cta" data-i18n="ind.cta">اطلب عرض سعر لهذا القطاع</span>
+              </div>
+              <span class="ind-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+          <a class="ind-card reveal" href="#contact" data-industry="traders">
+            <figure class="ind-card__media">
+              <img src="assets/images/industries/traders-distributors.webp" alt="صورة توضيحية: بكر استرتش وبالتة كراتين مغلّفة بالاسترتش داخل مستودع" data-i18n-attr="alt:ind.c2.alt" width="800" height="533" loading="lazy" decoding="async" />
+              <span class="media__tag" data-i18n="media.illustrative">صورة توضيحية</span>
+            </figure>
+            <div class="ind-card__panel">
+              <span class="ind-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5v11H3z"/><rect x="7" y="13" width="4" height="4"/><rect x="13" y="13" width="4" height="4"/><rect x="10" y="9" width="4" height="4"/></svg></span>
+              <div class="ind-card__text">
+                <h3 data-i18n="ind.c2.title">التجار والموزعون</h3>
+                <p class="ind-card__alt alt-lang" lang="en" dir="ltr" data-i18n="ind.c2.alt2">Traders &amp; Distributors</p>
+                <p data-i18n="ind.c2.desc">توفير بكر الاسترتش بمقاسات وأوزان متنوعة لتلبية احتياجات التجار والموزعين.</p>
+                <span class="ind-card__cta" data-i18n="ind.cta">اطلب عرض سعر لهذا القطاع</span>
+              </div>
+              <span class="ind-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+          <a class="ind-card reveal" href="#contact" data-industry="shipping">
+            <figure class="ind-card__media">
+              <img src="assets/images/industries/shipping-logistics.webp" alt="صورة توضيحية: رافعة شوكية تحمّل بالتة كراتين مغلّفة داخل شاحنة نقل" data-i18n-attr="alt:ind.c3.alt" width="960" height="640" loading="lazy" decoding="async" />
+              <span class="media__tag" data-i18n="media.illustrative">صورة توضيحية</span>
+            </figure>
+            <div class="ind-card__panel">
+              <span class="ind-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h11v10H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>
+              <div class="ind-card__text">
+                <h3 data-i18n="ind.c3.title">شركات الشحن والنقل</h3>
+                <p class="ind-card__alt alt-lang" lang="en" dir="ltr" data-i18n="ind.c3.alt2">Shipping &amp; Logistics</p>
+                <p data-i18n="ind.c3.desc">حلول تغليف تساعد على تثبيت وحماية البضائع أثناء النقل والتخزين.</p>
+                <span class="ind-card__cta" data-i18n="ind.cta">اطلب عرض سعر لهذا القطاع</span>
+              </div>
+              <span class="ind-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container contact">
+        <div class="contact__info reveal">
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="contact.eyebrow">تواصل معنا</span></p>
+          <h2 class="section__title" data-i18n="contact.title">لنُغلّف <span class="text-cyan">شحنتك القادمة</span></h2>
+          <p data-i18n="contact.body">أخبرنا باحتياجاتك في التغليف وسنتواصل معك.</p>
+          <div class="contact__company">
+            <p class="contact__name" data-i18n="company.name">مؤسسة إيجي باك للاسترتش الصناعي</p>
+            <p class="contact__desc" data-i18n="company.exp">تصنيع وتقطيع وتجارة الاسترتش الصناعي، بخبرة أكثر من 15 عامًا.</p>
+          </div>
+          <ul class="contact__list">
+            <li><span data-i18n="contact.phone">الهاتف</span><a href="tel:+201003070334" dir="ltr">01003070334</a></li>
+            <li><span data-i18n="contact.whatsappLabel">واتساب</span><a class="js-wa" href="https://wa.me/201065786620?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%AA%D8%B4%20%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%20%D9%84%D8%AF%D9%89%20%D8%A5%D9%8A%D8%AC%D9%8A%20%D8%A8%D8%A7%D9%83." target="_blank" rel="noopener" dir="ltr">+201065786620</a></li>
+            <li><span data-i18n="contact.emailLabel">البريد الإلكتروني</span><a href="mailto:marketing@egypack.org" dir="ltr">marketing@egypack.org</a></li>
+          </ul>
+          <div class="contact__actions">
+            <a class="btn btn--primary btn--sm" href="tel:+201003070334" data-i18n="contact.call">اتصل الآن</a>
+            <a class="btn btn--ghost btn--sm js-wa" href="https://wa.me/201065786620?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%AA%D8%B4%20%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%20%D9%84%D8%AF%D9%89%20%D8%A5%D9%8A%D8%AC%D9%8A%20%D8%A8%D8%A7%D9%83." target="_blank" rel="noopener" data-i18n="contact.whatsapp">راسلنا على واتساب</a>
+            <a class="btn btn--ghost btn--sm" href="mailto:marketing@egypack.org" data-i18n="contact.email">أرسل بريدًا إلكترونيًا</a>
+          </div>
+          <p class="ar--block alt-lang" lang="en" dir="ltr" data-i18n="contact.alt">Contact us for a quotation</p>
+        </div>
+        <form class="contact__form glass-card reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cName" data-i18n="form.name">اسم العميل</label>
+            <input id="cName" name="name" type="text" required autocomplete="name" dir="auto" />
+          </div>
+          <div class="field">
+            <label for="cCompany" data-i18n="form.company">اسم الشركة (اختياري)</label>
+            <input id="cCompany" name="company" type="text" autocomplete="organization" dir="auto" />
+          </div>
+          <div class="field">
+            <label for="cIndustry" data-i18n="form.industry">نوع النشاط (اختياري)</label>
+            <select id="cIndustry" name="industry">
+              <option value="" data-i18n="form.industryNone">— اختر نوع النشاط —</option>
+              <option value="factories" data-i18n="ind.c1.title">المصانع</option>
+              <option value="traders" data-i18n="ind.c2.title">التجار والموزعون</option>
+              <option value="shipping" data-i18n="ind.c3.title">شركات الشحن والنقل</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cPhone" data-i18n="form.phone">رقم الهاتف</label>
+            <input id="cPhone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" dir="ltr" />
+          </div>
+          <div class="field">
+            <label for="cProduct" data-i18n="form.product">المنتج</label>
+            <select id="cProduct" name="product">
+              <!-- options are generated from js/product-data.js; these are the no-JavaScript fallback -->
+              <option value="jumbo">بكرة جامبو</option>
+              <option value="r50">بكرة استريتش 50 سم</option>
+              <option value="r30">بكرة استريتش 30 سم</option>
+              <option value="r10">بكرة استريتش 10 سم</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cQty" data-i18n="form.qty">الكمية</label>
+            <input id="cQty" name="quantity" type="text" required dir="auto" placeholder="مثال: 50 رول" data-i18n-attr="placeholder:form.qtyPh" />
+          </div>
+          <div class="field">
+            <label for="cMsg" data-i18n="form.message">ملاحظات إضافية (اختياري)</label>
+            <textarea id="cMsg" name="message" rows="3" dir="auto"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" data-i18n="form.submit">إرسال الطلب عبر واتساب</button>
+          <p class="form__hint" data-i18n="form.hint">سيفتح واتساب برسالة جاهزة تتضمن بياناتك، لتراجعها وترسلها بنفسك.</p>
+          <p class="form__status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand-logo brand-logo--footer">
+          <img class="brand-logo__img" src="assets/images/logo-light.png" alt="EGY PACK — إيجي باك" width="214" height="192" />
+          <span class="brand-logo__fx" aria-hidden="true"><span class="brand-logo__depth"></span><span class="brand-logo__metal"></span><span class="brand-logo__sheen"></span></span>
+        </span>
+        <p class="footer__company" data-i18n="footer.tagline">مؤسسة إيجي باك للاسترتش الصناعي</p>
+        <p class="alt-lang" lang="en" dir="ltr" data-i18n="footer.alt">EGY PACK — Industrial Stretch Film Manufacturing, Cutting &amp; Trading</p>
+      </div>
+      <ul class="footer__contact">
+        <li><span data-i18n="contact.phone">الهاتف</span> <a href="tel:+201003070334" dir="ltr">01003070334</a></li>
+        <li><span data-i18n="contact.whatsappLabel">واتساب</span> <a class="js-wa" href="https://wa.me/201065786620?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%AA%D8%B4%20%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%20%D9%84%D8%AF%D9%89%20%D8%A5%D9%8A%D8%AC%D9%8A%20%D8%A8%D8%A7%D9%83." target="_blank" rel="noopener" dir="ltr">+201065786620</a></li>
+        <li><span data-i18n="contact.emailLabel">البريد الإلكتروني</span> <a href="mailto:marketing@egypack.org" dir="ltr">marketing@egypack.org</a></li>
+        <li id="footerFacebook" hidden><a href="#" target="_blank" rel="noopener" data-i18n="footer.facebook">صفحتنا على فيسبوك</a></li>
+      </ul>
+      <nav class="footer__links" aria-label="روابط التذييل" data-i18n-attr="aria-label:footer.label">
+        <a href="#about" data-i18n="nav.about">من نحن</a>
+        <a href="#products" data-i18n="nav.products">المنتجات</a>
+        <a href="#technology" data-i18n="nav.technology">التقنية</a>
+        <a href="#industries" data-i18n="nav.industries">القطاعات</a>
+        <a href="#contact" data-i18n="footer.contact">تواصل معنا</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year"></span> <span data-i18n="footer.rights">مؤسسة إيجي باك للاسترتش الصناعي. جميع الحقوق محفوظة.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING FACEBOOK ============ -->
+  <a class="wa-float fb-float" id="fbFloat" href="https://www.facebook.com/share/1JrzRy1y7q/" target="_blank" rel="noopener" aria-label="صفحتنا على فيسبوك" title="صفحتنا على فيسبوك" data-i18n-attr="aria-label:footer.facebook;title:footer.facebook">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21.5v-8h2.7l.4-3.2h-3.1V8.3c0-.9.3-1.5 1.6-1.5h1.7V4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.3H7.7v3.2h2.7v8z"/></svg>
+  </a>
+
+  <!-- ============ FLOATING WHATSAPP ============ -->
+  <a class="wa-float js-wa" id="waFloat" href="https://wa.me/201065786620?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%AA%D8%B4%20%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%20%D9%84%D8%AF%D9%89%20%D8%A5%D9%8A%D8%AC%D9%8A%20%D8%A8%D8%A7%D9%83." target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب" title="تواصل معنا عبر واتساب" data-i18n-attr="aria-label:wa.label;title:wa.label">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
+
+  <script type="importmap">
+    { "imports": {
+        "three": "./vendor/three/build/three.module.min.js",
+        "three/addons/": "./vendor/three/addons/"
+    } }
+  </script>
+  <script src="js/site-config.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script type="module" src="js/hero3d.js"></script>
+  <script type="module" src="js/experiences.js"></script>
+
+</body></html>
